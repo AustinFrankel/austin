@@ -226,9 +226,9 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
         {/* Sticky year/header */}
         <div className="sticky top-0 z-20 backdrop-blur-sm bg-white/60 dark:bg-neutral-900/60 border-b border-black/5 dark:border-white/10">
           <div className="container-px mx-auto max-w-4xl py-2 flex items-center gap-3">
-            <div className="text-xs uppercase tracking-wide text-neutral-500">Year</div>
+            <div className="text-xs uppercase tracking-wide text-neutral-700 dark:text-neutral-400">Year</div>
             <div className="text-xl font-semibold" aria-live="polite" aria-atomic>{currentYear}</div>
-            <div className="ml-auto text-sm text-neutral-500">{activeIndex + 1}/{flatItems.length}</div>
+            <div className="ml-auto text-sm text-neutral-700 dark:text-neutral-400">{activeIndex + 1}/{flatItems.length}</div>
           </div>
         </div>
 
@@ -290,7 +290,7 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
       {/* Sticky year header */}
       <div className="sticky top-0 z-10 backdrop-blur-sm bg-white/60 dark:bg-neutral-900/60 border-b border-black/5 dark:border-white/10">
         <div className="container-px mx-auto max-w-3xl py-2 flex items-center gap-3">
-          <div className="text-xs uppercase tracking-wide text-neutral-500">Year</div>
+          <div className="text-xs uppercase tracking-wide text-neutral-700 dark:text-neutral-400">Year</div>
           <div className="text-xl font-semibold" aria-live="polite" aria-atomic>
             {years[activeYearIndex]?.[0] ?? new Date(sorted[0]?.date ?? Date.now()).getFullYear()}
           </div>
@@ -398,7 +398,7 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
               initial={{ scale: 0.9, opacity: 0 }}
               animate={inView && !prefersReducedMotion ? { scale: 1, opacity: 1 } : { scale: 1, opacity: 1 }}
               transition={{ type: "spring", stiffness: 260, damping: 18 }}
-              className="text-neutral-700 dark:text-neutral-200"
+              className="text-neutral-900 dark:text-neutral-200"
             >
               {icon}
             </motion.span>
@@ -406,16 +406,16 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
               <h3 className="font-semibold text-2xl leading-tight">{item.title}</h3>
-              {item.subtitle && <span className="text-sm text-neutral-600 dark:text-neutral-300">{item.subtitle}</span>}
+              {item.subtitle && <span className="text-sm text-neutral-900 dark:text-neutral-300">{item.subtitle}</span>}
             </div>
-            <div className="mt-2 text-base text-neutral-600 dark:text-neutral-300">
+            <div className="mt-2 text-base text-neutral-900 dark:text-neutral-300">
               <time dateTime={item.date}>{dateLabel}</time>
               {endLabel && <>
                 <span aria-hidden> — </span>
                 <time dateTime={item.endDate}>{endLabel}</time>
               </>}
               {item.location && (
-                <span className="ml-2 inline-flex items-center gap-1 text-neutral-500"><MapPin className="h-3 w-3" aria-hidden />{item.location}</span>
+                <span className="ml-2 inline-flex items-center gap-1 text-neutral-700 dark:text-neutral-400"><MapPin className="h-3 w-3" aria-hidden />{item.location}</span>
               )}
             </div>
             {item.description && (
@@ -474,7 +474,7 @@ function Counter({ value, label, animate }: { value: number; label: string; anim
   return (
     <div className="rounded-md border border-black/10 dark:border-white/20 px-2.5 py-1.5">
       <div className="text-sm font-semibold tabular-nums">{display.toLocaleString()}</div>
-      <div className="text-xs text-neutral-500">{label}</div>
+        <div className="text-xs text-neutral-700 dark:text-neutral-400">{label}</div>
     </div>
   );
 }

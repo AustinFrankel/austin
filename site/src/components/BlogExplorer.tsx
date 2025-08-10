@@ -86,7 +86,7 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
           aria-label="Search posts"
         />
         <div className="flex items-center gap-2 justify-end">
-          <label className="text-sm text-neutral-600 dark:text-neutral-300">Tags:</label>
+          <label className="text-sm text-neutral-900 dark:text-neutral-300">Tags:</label>
           <select
             value={tagMode}
             onChange={(e) => setTagMode(e.target.value as TagMode)}
@@ -98,7 +98,7 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
           </select>
         </div>
         <div className="flex items-center gap-2 justify-end">
-          <label className="text-sm text-neutral-600 dark:text-neutral-300">Sort:</label>
+          <label className="text-sm text-neutral-900 dark:text-neutral-300">Sort:</label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortBy)}
@@ -163,13 +163,13 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`/api/og-post/${p.slug}?title=${encodeURIComponent(p.title)}`} alt="" className="hidden w-full h-36 object-cover" />
                 </div>
-                <div className="font-medium group-hover:underline">
+                <div className="font-medium group-hover:underline text-neutral-900 dark:text-white">
                   {p.title}
                 </div>
-                <div className="text-sm text-neutral-700 dark:text-neutral-300">
+                <div className="text-sm text-neutral-900 dark:text-neutral-300">
                   {p.description}
                 </div>
-                <div className="mt-2 text-xs text-neutral-500">
+                <div className="mt-2 text-xs text-neutral-700 dark:text-neutral-400">
                   {p.tags.slice(0, 3).map((t) => `#${t}`).join(" ")}
                   {p.tags.length > 3 ? " …" : ""}
                 </div>

@@ -24,7 +24,7 @@
 
 html { color-scheme: light dark; scroll-behavior: smooth; font-size: calc(16px * var(--text-scale, 1)); transition: font-size .28s ease; }
 
-html[data-theme="light"] { --bg: 255 255 255; --fg: 17 24 39; --muted: 55 65 81; --card: 248 250 252; }
+html[data-theme="light"] { --bg: 255 255 255; --fg: 17 24 39; --muted: 31 41 55; --card: 248 250 252; }
 html[data-theme="dark"] { --bg: 12 14 18; --fg: 232 234 237; --muted: 148 163 184; --card: 22 26 33; }
 
 html[data-textsize="s"] { --text-scale: 0.94; }

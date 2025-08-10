@@ -6,7 +6,7 @@ export default function Blog() {
   return (
     <div className="container-px mx-auto max-w-6xl py-10">
       <h1 className="text-3xl font-bold">Blog</h1>
-      <p className="mt-2 text-neutral-700 dark:text-neutral-300">Browse posts with search, tag filters, sorting, and compact view. No pagination—just load more.</p>
+      <p className="mt-2 text-neutral-900 dark:text-neutral-300">Browse posts with search, tag filters, sorting, and compact view. No pagination—just load more.</p>
       <div className="mt-6 max-w-3xl">
         <FAQAccordion
           items={[

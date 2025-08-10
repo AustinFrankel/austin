@@ -20,7 +20,7 @@ export default function Ventures() {
             </div>
               <div className="p-4">
                 <div className="font-semibold text-neutral-900 dark:text-white">{v.name}</div>
-                <div className="text-sm text-neutral-700 dark:text-neutral-300">{v.desc}</div>
+                <div className="text-sm text-neutral-900 dark:text-neutral-300">{v.desc}</div>
                 <div className="mt-2 text-blue-700 dark:text-blue-300">View page</div>
             </div>
           </Link>

@@ -18,7 +18,7 @@ export default function Home() {
         <section className="container-px mx-auto max-w-6xl pt-16 pb-8 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
           <div>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight"><span className="text-bg">Austin Frankel · Student Entrepreneur & iOS Developer</span></h1>
-            <p className="mt-4 text-lg text-neutral-800 dark:text-neutral-300"><span className="text-bg">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</span></p>
+            <p className="mt-4 text-lg text-neutral-900 dark:text-neutral-300"><span className="text-bg">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</span></p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={LINKS.appStore} target="_blank" rel="noopener" className="btn-primary h-11 px-6 inline-flex items-center">Download Seat Maker</a>
               <a href="https://www.google.com/maps?q=Rye+Brook,+NY" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center">Rye Brook, NY</a>
@@ -67,10 +67,10 @@ export default function Home() {
                   <div className="flex items-center justify-between">
                     <h3 className="font-semibold">{c.title}</h3>
                     {c.ext && (
-                      <a className="text-xs text-neutral-500 hover:underline" href={c.ext} target="_blank" rel="noopener">Visit</a>
+                      <a className="text-xs text-neutral-700 dark:text-neutral-300 hover:underline" href={c.ext} target="_blank" rel="noopener">Visit</a>
                     )}
                   </div>
-                  <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-300">{c.desc}</p>
+                  <p className="mt-2 text-sm text-neutral-900 dark:text-neutral-300">{c.desc}</p>
                   <Link href={c.href} className="mt-3 inline-flex text-sm text-blue-700 dark:text-blue-300 hover:underline">View page</Link>
                 </div>
               </Reveal>
@@ -106,8 +106,8 @@ export default function Home() {
               <Reveal key={p.slug} delay={0.15 + i * 0.05}>
                 <article className="card p-5">
                   <Link href={`/blog/${p.slug}`} className="font-medium hover:underline">{p.title}</Link>
-                  <div className="text-sm text-neutral-700 dark:text-neutral-300">{p.description}</div>
-                  <div className="mt-2 text-xs text-neutral-500">{p.tags.map((t) => `#${t}`).join(" ")}</div>
+                  <div className="text-sm text-neutral-900 dark:text-neutral-300">{p.description}</div>
+                  <div className="mt-2 text-xs text-neutral-700 dark:text-neutral-400">{p.tags.map((t) => `#${t}`).join(" ")}</div>
                 </article>
               </Reveal>
             ))}
@@ -131,7 +131,7 @@ export default function Home() {
               <Reveal key={t.quote} delay={0.15 + i * 0.04}>
                 <div className="card p-5">
                   <p className="italic text-neutral-900 dark:text-neutral-100">“{t.quote}”</p>
-                  <div className="mt-2 text-sm text-neutral-700 dark:text-neutral-300">— {t.author}</div>
+                  <div className="mt-2 text-sm text-neutral-900 dark:text-neutral-300">— {t.author}</div>
                 </div>
               </Reveal>
             ))}
@@ -143,7 +143,7 @@ export default function Home() {
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-3xl py-10">
           <h2 className="text-2xl font-semibold">About</h2>
-          <p className="mt-3 text-neutral-800 dark:text-neutral-300">
+          <p className="mt-3 text-neutral-900 dark:text-neutral-300">
             Austin Frankel is a 17-year-old student entrepreneur from Rye Brook, NY. Creator of Seat Maker, BBYO regional leader, coding educator (CodeLab, Code Assist), Homework Helpers VP, swim instructor, and pianist (BP_Piano). Blind Brook High School ’26.
           </p>
           <div className="mt-4">
@@ -160,14 +160,14 @@ export default function Home() {
             <a href={LINKS.seatMakerInstagram} target="_blank" rel="noopener" className="card p-6 flex items-center justify-between">
               <div>
                 <div className="font-semibold">@seatmakerapp</div>
-                <div className="text-sm text-neutral-700 dark:text-neutral-300">App updates, tips, and behind-the-scenes.</div>
+                <div className="text-sm text-neutral-900 dark:text-neutral-300">App updates, tips, and behind-the-scenes.</div>
               </div>
               <span>📷</span>
             </a>
             <a href={LINKS.personalInstagram} target="_blank" rel="noopener" className="card p-6 flex items-center justify-between">
               <div>
                 <div className="font-semibold">@austinfrankel1</div>
-                <div className="text-sm text-neutral-700 dark:text-neutral-300">Personal projects and life updates.</div>
+                <div className="text-sm text-neutral-900 dark:text-neutral-300">Personal projects and life updates.</div>
               </div>
               <span>📷</span>
             </a>
