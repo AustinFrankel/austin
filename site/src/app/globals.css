@@ -103,14 +103,11 @@ html[data-theme="light"] .bg-grid::before { content: none; }
 /* Cursor gradient that follows the mouse: visible on both themes */
 /* Cursor gradient (original layered glow) */
 .cursor-glow { 
-  position: fixed; inset: 0; pointer-events: none; z-index: 40;
-  background: radial-gradient(320px 320px at var(--mx,50%) var(--my,50%), rgb(var(--accent) / 0.35), transparent 65%),
-              radial-gradient(420px 420px at calc(var(--mx,50%) + 60px) calc(var(--my,50%) + 40px), rgb(var(--accent-2) / 0.28), transparent 70%),
-              radial-gradient(520px 520px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgb(var(--accent-3) / 0.22), transparent 70%);
-  mix-blend-mode: overlay;
+  position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  background: radial-gradient(340px 340px at var(--mx,50%) var(--my,50%), rgb(var(--accent) / 0.30), transparent 65%),
+              radial-gradient(460px 460px at calc(var(--mx,50%) + 60px) calc(var(--my,50%) + 40px), rgb(var(--accent-2) / 0.20), transparent 70%),
+              radial-gradient(560px 560px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgb(var(--accent-3) / 0.16), transparent 70%);
 }
-/* Calmer in light mode so text remains readable */
-html[data-theme="light"] .cursor-glow { mix-blend-mode: multiply; opacity: 0.85; }
 
 /* Animated nav links */
 .nav-link { position: relative; padding-bottom: 2px; transition: color .2s ease, transform .2s ease; }
