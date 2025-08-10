@@ -324,7 +324,7 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
       </div>
 
       {/* Years and items */}
-      <div className="container-px mx-auto max-w-3xl py-8">
+      <div className="container-px mx-auto max-w-4xl py-16">
         <ol className="relative">
           {years.map(([year, list]) => (
             <li
@@ -355,7 +355,7 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
 function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: boolean; isActive: boolean }) {
   const prefersReducedMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { margin: "-30% 0px -40% 0px", amount: 0.3 });
+  const inView = useInView(ref, { margin: "-25% 0px -35% 0px", amount: 0.3 });
 
   const icon = categoryIcon[item.category];
   const dateLabel = formatDisplayDate(item.date, item.approximate);
@@ -365,7 +365,7 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
   const isRight = new Date(item.date).getTime() % 2 === 0;
 
   return (
-    <div ref={ref} data-observe="item" data-id={item.id} tabIndex={0} className="group relative pl-6 py-6 outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--accent))] rounded-lg">
+    <div ref={ref} data-observe="item" data-id={item.id} tabIndex={0} className="group relative pl-6 py-10 outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--accent))] rounded-xl">
       {/* Connector dot */}
       <span className="absolute left-[-6px] top-8 z-[1] inline-flex h-3 w-3 items-center justify-center">
         <span className={`h-3 w-3 rounded-full ${isActive ? "bg-[rgb(var(--accent))]" : "bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/20"}`} />
@@ -387,10 +387,10 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
 
       {/* Card */}
       <motion.div
-        initial={{ opacity: 0, x: isRight ? 24 : -24 }}
-        animate={inView && !prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="card p-4"
+        initial={{ opacity: 0, x: isRight ? 24 : -24, scale: 0.98 }}
+        animate={inView && !prefersReducedMotion ? { opacity: 1, x: 0, scale: 1 } : { opacity: 1, x: 0, scale: 1 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+        className="card p-5"
       >
         <div className="flex items-start gap-3">
           <div className="shrink-0 mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 dark:border-white/20 bg-white dark:bg-neutral-900">
@@ -423,18 +423,18 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
             )}
             {(item.media && item.media.length > 0) && (
               <div className="mt-3 grid grid-cols-2 gap-2">
-                {item.media.slice(0, 2).map((m) => (
+                {item.media.slice(0, 2).map((m, i) => (
                   <motion.img
                     key={m.src}
                     src={m.src}
                     alt={m.alt}
                     loading="lazy"
                     decoding="async"
-                    className="h-28 w-full rounded-lg object-cover border border-black/10 dark:border-white/15"
-                    initial={{ scale: 0.98, opacity: 0 }}
-                    whileInView={!prefersReducedMotion ? { scale: 1, opacity: 1 } : undefined}
+                    className="h-32 w-full rounded-lg object-cover border border-black/10 dark:border-white/15"
+                    initial={{ scale: 0.92, opacity: 0, rotate: i % 2 ? 1.5 : -1.5 }}
+                    whileInView={!prefersReducedMotion ? { scale: 1, opacity: 1, rotate: 0 } : undefined}
                     viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
                   />
                 ))}
               </div>
