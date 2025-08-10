@@ -85,9 +85,9 @@ export default function Home() {
           <div className="mt-6">
             <Gallery
               items={[
-                { src: "/images/seatmaker-build-profiles.png", alt: "Build Profiles" },
-                { src: "/images/seatmaker-export-share.png", alt: "Export & Share" },
-                { src: "/images/seatmaker-laptop.jpg", alt: "Seat Maker site on laptop" },
+                { src: "/images/austin-headshot.jpg", alt: "Austin" },
+                { src: "/images/austin-headshot.jpg", alt: "Austin" },
+                { src: "/images/austin-headshot.jpg", alt: "Austin" },
               ]}
             />
           </div>
