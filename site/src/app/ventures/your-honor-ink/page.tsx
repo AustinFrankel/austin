@@ -46,11 +46,11 @@ export default function Page() {
       </div>
 
       <div className="mt-10">
-        <Gallery
+          <Gallery
           items={[
-            { src: "/images/austin-headshot.jpg", alt: "Sample merch" },
-            { src: "/images/austin-headshot.jpg", alt: "Sample print" },
-            { src: "/images/austin-headshot.jpg", alt: "Local pickup" },
+            { src: "/images/austin-headshot.jpeg", alt: "Sample merch" },
+            { src: "/images/austin-headshot.jpeg", alt: "Sample print" },
+            { src: "/images/austin-headshot.jpeg", alt: "Local pickup" },
           ]}
         />
       </div>

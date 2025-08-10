@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${CANONICAL_URL}/images/austin-headshot.jpg`,
+        url: `${CANONICAL_URL}/images/austin-headshot.jpeg`,
         width: 1200,
         height: 630,
         alt: "Austin Frankel headshot",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Austin Frankel — Student Entrepreneur & iOS Developer",
     description: "Creator of Seat Maker; BBYO leader; coding educator.",
-    images: [`${CANONICAL_URL}/images/austin-headshot.jpg`],
+    images: [`${CANONICAL_URL}/images/austin-headshot.jpeg`],
   },
   other: { hreflang: "en-US" },
 };

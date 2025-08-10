@@ -15,7 +15,7 @@ export default function About() {
       <div className="mt-6 grid gap-6 sm:grid-cols-[160px_1fr] items-start">
         <div className="rounded-xl overflow-hidden border border-black/5 dark:border-white/10">
           <Image
-            src="/images/austin-headshot.jpg"
+            src="/images/austin-headshot.jpeg"
             alt="Austin Frankel headshot"
             width={800}
             height={1000}
