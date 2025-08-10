@@ -26,7 +26,7 @@ export default function Home() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur">
-            <Image src="/images/austin-headshot.jpg" alt="Austin headshot" width={1200} height={1500} className="w-full h-auto object-cover" priority unoptimized />
+            <img src="/images/austin-headshot.jpg" alt="Austin headshot" className="w-full h-auto object-cover" />
           </div>
         </section>
       </Reveal>
@@ -85,9 +85,9 @@ export default function Home() {
           <div className="mt-6">
             <Gallery
               items={[
-                { src: "/images/seatmaker-build-profiles.png", alt: "Build Profiles" },
-                { src: "/images/seatmaker-export-share.png", alt: "Export & Share" },
-                { src: "/images/seatmaker-laptop.jpg", alt: "Seat Maker site on laptop" },
+                { src: "/images/austin-headshot.jpg", alt: "Austin" },
+                { src: "/images/austin-headshot.jpg", alt: "Austin" },
+                { src: "/images/austin-headshot.jpg", alt: "Austin" },
               ]}
             />
           </div>
