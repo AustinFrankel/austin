@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: 255 255 255;
+  --fg: 15 18 25;
+  --muted: 102 112 133;
+  --card: 248 250 252;
+  --ring: 59 130 246;
+  --accent: 59 130 246; /* primary accent; updated by ThemeProvider */
+  --accent-2: 139 92 246; /* secondary for gradients */
+  --accent-3: 16 185 129; /* tertiary for gradients */
 }
 
 @theme inline {
@@ -13,17 +19,123 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  :root { --bg: 12 14 18; --fg: 232 234 237; --muted: 148 163 184; --card: 22 26 33; --ring: 147 197 253; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html { color-scheme: light dark; scroll-behavior: smooth; font-size: calc(16px * var(--text-scale, 1)); transition: font-size .28s ease; }
+
+html[data-theme="light"] { --bg: 255 255 255; --fg: 15 18 25; --muted: 82 92 103; --card: 248 250 252; }
+html[data-theme="dark"] { --bg: 12 14 18; --fg: 232 234 237; --muted: 148 163 184; --card: 22 26 33; }
+
+html[data-textsize="s"] { --text-scale: 0.94; }
+html[data-textsize="m"] { --text-scale: 1; }
+html[data-textsize="l"] { --text-scale: 1.12; }
+
+body { background-color: rgb(var(--bg)); color: rgb(var(--fg)); font-family: Arial, Helvetica, sans-serif; }
+
+/* Advanced background: soft grid + vignette + diagonal noise (original style) */
+.bg-grid {
+  /* Symmetrical grid centered on viewport with subtle vignette; hue ties to accent */
+  background-image:
+    radial-gradient(1000px 700px at 50% 0%, rgba(var(--accent),0.10), transparent 65%),
+    linear-gradient(rgba(100,116,139,0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,116,139,0.10) 1px, transparent 1px);
+  background-size: auto, 24px 24px, 24px 24px;
+  background-position: center top, center 12px, center;
+  background-blend-mode: normal;
+  position: relative;
+}
+/* Tune grid strength per theme for better readability */
+html[data-theme="light"] .bg-grid {
+  background-image:
+    radial-gradient(1000px 700px at 50% 0%, rgba(var(--accent),0.16), transparent 65%),
+    linear-gradient(rgba(100,116,139,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,116,139,0.12) 1px, transparent 1px);
+  background-position: center top, center 12px, center;
+}
+html[data-theme="dark"] .bg-grid {
+  background-image:
+    radial-gradient(1000px 700px at 50% 0%, rgba(var(--accent),0.22), transparent 65%),
+    linear-gradient(rgba(100,116,139,0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,116,139,0.13) 1px, transparent 1px);
+  background-position: center top, center 12px, center;
 }
 
-/* Simple container utilities */
-.border { border-color: rgb(0 0 0 / 0.1); }
+/* Extra-assurance: paint grid as a fixed overlay to ensure visibility across all sections */
+.bg-grid::before {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(800px 560px at 50% 0%, rgba(0,0,0,0.10), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(120,140,180,0.14) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgba(120,140,180,0.14) 0 1px, transparent 1px 24px);
+}
+html[data-theme="light"] .bg-grid::before {
+  background-image:
+    radial-gradient(800px 560px at 50% 0%, rgba(120,160,220,0.12), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(120,140,180,0.16) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgba(120,140,180,0.16) 0 1px, transparent 1px 24px);
+}
+
+.card { @apply rounded-2xl shadow-lg shadow-black/5 dark:shadow-black/20 border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900; position: relative; overflow: hidden; }
+.container-px { @apply px-4 sm:px-6 lg:px-8; }
+
+.btn-primary { background-color: rgb(var(--accent)); color: white; border-radius: 9999px; transition: background-color .15s ease, transform .2s ease, box-shadow .2s ease; position: relative; overflow: hidden; }
+.btn-primary:hover { filter: brightness(0.98); }
+.btn-outline { border: 1px solid rgb(0 0 0 / 0.12); color: inherit; border-radius: 9999px; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+.dark .btn-outline { border-color: rgb(255 255 255 / 0.22); }
+.btn-outline:hover { background-color: rgb(0 0 0 / 0.05); }
+.dark .btn-outline:hover { background-color: rgb(255 255 255 / 0.1); }
+
+/* Hover graphics driven by --bx/--by (set by HoverGlowClient) */
+.home-root .btn-primary::after, .home-root .btn-outline::after, .home-root .card::after {
+  content: ""; position: absolute; inset: -1px; pointer-events: none; opacity: 0; transition: opacity .25s ease;
+  background:
+    radial-gradient(220px 220px at var(--bx, -100px) var(--by, -100px), rgba(var(--accent),0.25), transparent 60%),
+    radial-gradient(360px 360px at calc(var(--bx, -100px) + 60px) calc(var(--by, -100px) + 40px), rgba(var(--accent-2),0.18), transparent 70%);
+  mix-blend-mode: overlay;
+}
+.home-root .btn-primary:hover::after, .home-root .btn-outline:hover::after, .home-root .card:hover::after { opacity: 1; }
+
+/* Disable grid-overlay on hover inside boxes (cards/buttons) sitewide */
+.card::before, .btn-primary::before, .btn-outline::before { display: none !important; }
+
+/* Elevation + border accent on hover */
+.home-root .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgb(0 0 0 / .12); }
+.home-root .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgb(59 130 246 / .20); }
+.home-root .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgb(0 0 0 / .08); }
+.card:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; }
+
+.prose h1, .prose h2, .prose h3 { @apply font-semibold mt-6; }
+.prose p { @apply mt-4 leading-7; }
+.prose ul { @apply list-disc pl-6 mt-4; }
+
+/* Cursor gradient that follows the mouse: visible on both themes */
+/* Cursor gradient (original layered glow) */
+.cursor-glow { 
+  position: fixed; inset: 0; pointer-events: none; z-index: 10;
+  background: radial-gradient(260px 260px at var(--mx,50%) var(--my,50%), rgba(var(--accent),0.26), transparent 65%),
+              radial-gradient(360px 360px at calc(var(--mx,50%) + 60px) calc(var(--my,50%) + 40px), rgba(var(--accent-2),0.20), transparent 70%),
+              radial-gradient(420px 420px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgba(var(--accent-3),0.16), transparent 70%);
+  mix-blend-mode: hard-light;
+}
+/* Calmer in light mode so text remains readable */
+html[data-theme="light"] .cursor-glow { mix-blend-mode: multiply; opacity: 0.75; }
+
+/* Animated nav links */
+.nav-link { position: relative; padding-bottom: 2px; transition: color .2s ease, transform .2s ease; }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+  background: linear-gradient(90deg, rgba(var(--accent),1) 0%, rgba(var(--accent-2),1) 50%, rgba(var(--accent-3),1) 100%);
+  transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+  border-radius: 2px;
+}
+.nav-link:hover { color: rgb(var(--accent)); transform: translateY(-1px); }
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-link:focus-visible { outline: none; color: rgb(var(--accent)); }
+
+* { transition: color .15s ease, background-color .15s ease, border-color .15s ease, transform .2s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
