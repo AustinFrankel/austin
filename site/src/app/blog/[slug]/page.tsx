@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SafeImg } from "@/components/SafeImg";
 import { notFound } from "next/navigation";
 import { allPosts, getAdjacentPosts } from "@/lib/blog";
 import { LikeShare } from "@/components/LikeShare";
@@ -50,15 +51,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <article className="prose dark:prose-invert max-w-3xl">
         <h1>{post.title}</h1>
         <div className="-mt-1 mb-4 overflow-hidden rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5">
-          <img
-            src={`/images/posts/${post.slug}.jpg`}
-            alt=""
-            className="w-full h-56 object-cover"
-            onError={(e) => {
-              const el = e.currentTarget as HTMLImageElement;
-              el.style.display = "none";
-            }}
-          />
+          <SafeImg src={`/images/posts/${post.slug}.jpg`} className="w-full h-56 object-cover" />
         </div>
         <p className="text-neutral-700 dark:text-neutral-300">{post.description}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

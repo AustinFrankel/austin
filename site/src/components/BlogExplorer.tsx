@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { SafeImg } from "@/components/SafeImg";
 import { LikeShare } from "@/components/LikeShare";
 import type { BlogPost } from "@/lib/blog";
 
@@ -157,15 +158,7 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
             <article className={`card ${compact ? "p-3" : "p-5"} transition-transform group-hover:-translate-y-1`}>
               <Link href={`/blog/${p.slug}`} className="block">
                 <div className="mb-3 overflow-hidden rounded-lg border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5">
-                  <img
-                    src={`/images/posts/${p.slug}.jpg`}
-                    alt=""
-                    className="w-full h-36 object-cover"
-                    onError={(e) => {
-                      const el = e.currentTarget as HTMLImageElement;
-                      el.style.display = "none";
-                    }}
-                  />
+                  <SafeImg src={`/images/posts/${p.slug}.jpg`} className="w-full h-36 object-cover" />
                 </div>
                 <div className="font-medium group-hover:underline">
                   {p.title}
