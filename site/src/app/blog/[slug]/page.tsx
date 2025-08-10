@@ -49,6 +49,17 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <div className="container-px mx-auto max-w-6xl py-10 grid lg:grid-cols-[1fr_240px] gap-10">
       <article className="prose dark:prose-invert max-w-3xl">
         <h1>{post.title}</h1>
+        <div className="-mt-1 mb-4 overflow-hidden rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5">
+          <img
+            src={`/images/posts/${post.slug}.jpg`}
+            alt=""
+            className="w-full h-56 object-cover"
+            onError={(e) => {
+              const el = e.currentTarget as HTMLImageElement;
+              el.style.display = "none";
+            }}
+          />
+        </div>
         <p className="text-neutral-700 dark:text-neutral-300">{post.description}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className="mt-6 flex items-center justify-between">
