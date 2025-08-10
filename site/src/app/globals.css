@@ -109,6 +109,8 @@ html[data-theme="light"] .bg-grid::before { content: none; }
               radial-gradient(520px 520px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgb(var(--accent-3) / 0.18), transparent 70%);
   mix-blend-mode: overlay;
 }
+/* Boost for dark mode so the effect is equally visible near the bottom */
+html[data-theme="dark"] .cursor-glow { mix-blend-mode: screen; }
 
 /* Animated nav links */
 .nav-link { position: relative; padding-bottom: 2px; transition: color .2s ease, transform .2s ease; }
