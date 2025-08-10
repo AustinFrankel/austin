@@ -27,8 +27,8 @@ export default function Home() {
               <Link href="/contact" className="btn-outline h-11 px-6 inline-flex items-center">Contact</Link>
             </div>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur">
-            <img src="/images/austin-headshot.png" alt="Austin headshot" className="w-full h-auto object-cover" />
+          <div className="relative">
+            <img src="/images/austin-headshot.png" alt="Austin headshot" className="w-full h-auto object-contain drop-shadow-2xl" />
           </div>
         </section>
       </Reveal>
