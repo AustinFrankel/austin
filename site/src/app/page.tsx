@@ -26,7 +26,7 @@ export default function Home() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur">
-            <img src="/images/austin-headshot.jpg" alt="Austin headshot" className="w-full h-auto object-cover" />
+            <img src="/images/headshot.jpg" alt="Austin headshot" className="w-full h-auto object-cover" />
           </div>
         </section>
       </Reveal>
