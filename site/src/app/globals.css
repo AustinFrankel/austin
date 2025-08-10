@@ -37,9 +37,9 @@ body { background-color: rgb(var(--bg)); color: rgb(var(--fg)); font-family: Ari
 .bg-grid {
   /* Symmetrical grid centered on viewport with subtle vignette; hue ties to accent */
   background-image:
-    radial-gradient(1000px 700px at 50% 0%, rgba(var(--accent),0.10), transparent 65%),
-    linear-gradient(rgba(100,116,139,0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100,116,139,0.10) 1px, transparent 1px);
+    radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.10), transparent 65%),
+    linear-gradient(rgb(100 116 139 / 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(100 116 139 / 0.10) 1px, transparent 1px);
   background-size: auto, 24px 24px, 24px 24px;
   background-position: center top, center 12px, center;
   background-blend-mode: normal;
@@ -48,16 +48,16 @@ body { background-color: rgb(var(--bg)); color: rgb(var(--fg)); font-family: Ari
 /* Tune grid strength per theme for better readability */
 html[data-theme="light"] .bg-grid {
   background-image:
-    radial-gradient(1000px 700px at 50% 0%, rgba(var(--accent),0.16), transparent 65%),
-    linear-gradient(rgba(100,116,139,0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100,116,139,0.12) 1px, transparent 1px);
+    radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.16), transparent 65%),
+    linear-gradient(rgb(100 116 139 / 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(100 116 139 / 0.12) 1px, transparent 1px);
   background-position: center top, center 12px, center;
 }
 html[data-theme="dark"] .bg-grid {
   background-image:
-    radial-gradient(1000px 700px at 50% 0%, rgba(var(--accent),0.22), transparent 65%),
-    linear-gradient(rgba(100,116,139,0.13) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100,116,139,0.13) 1px, transparent 1px);
+    radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.22), transparent 65%),
+    linear-gradient(rgb(100 116 139 / 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(100 116 139 / 0.13) 1px, transparent 1px);
   background-position: center top, center 12px, center;
 }
 
@@ -66,15 +66,15 @@ html[data-theme="dark"] .bg-grid {
   content: "";
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background-image:
-    radial-gradient(800px 560px at 50% 0%, rgba(0,0,0,0.10), transparent 70%),
-    repeating-linear-gradient(0deg, rgba(120,140,180,0.14) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(90deg, rgba(120,140,180,0.14) 0 1px, transparent 1px 24px);
+    radial-gradient(800px 560px at 50% 0%, rgb(0 0 0 / 0.10), transparent 70%),
+    repeating-linear-gradient(0deg, rgb(120 140 180 / 0.14) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgb(120 140 180 / 0.14) 0 1px, transparent 1px 24px);
 }
 html[data-theme="light"] .bg-grid::before {
   background-image:
-    radial-gradient(800px 560px at 50% 0%, rgba(120,160,220,0.12), transparent 70%),
-    repeating-linear-gradient(0deg, rgba(120,140,180,0.16) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(90deg, rgba(120,140,180,0.16) 0 1px, transparent 1px 24px);
+    radial-gradient(800px 560px at 50% 0%, rgb(120 160 220 / 0.12), transparent 70%),
+    repeating-linear-gradient(0deg, rgb(120 140 180 / 0.16) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgb(120 140 180 / 0.16) 0 1px, transparent 1px 24px);
 }
 
 .card { @apply rounded-2xl shadow-lg shadow-black/5 dark:shadow-black/20 border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900; position: relative; overflow: hidden; }
@@ -91,8 +91,8 @@ html[data-theme="light"] .bg-grid::before {
 .home-root .btn-primary::after, .home-root .btn-outline::after, .home-root .card::after {
   content: ""; position: absolute; inset: -1px; pointer-events: none; opacity: 0; transition: opacity .25s ease;
   background:
-    radial-gradient(220px 220px at var(--bx, -100px) var(--by, -100px), rgba(var(--accent),0.25), transparent 60%),
-    radial-gradient(360px 360px at calc(var(--bx, -100px) + 60px) calc(var(--by, -100px) + 40px), rgba(var(--accent-2),0.18), transparent 70%);
+    radial-gradient(220px 220px at var(--bx, -100px) var(--by, -100px), rgb(var(--accent) / 0.25), transparent 60%),
+    radial-gradient(360px 360px at calc(var(--bx, -100px) + 60px) calc(var(--by, -100px) + 40px), rgb(var(--accent-2) / 0.18), transparent 70%);
   mix-blend-mode: overlay;
 }
 .home-root .btn-primary:hover::after, .home-root .btn-outline:hover::after, .home-root .card:hover::after { opacity: 1; }
@@ -113,14 +113,14 @@ html[data-theme="light"] .bg-grid::before {
 /* Cursor gradient that follows the mouse: visible on both themes */
 /* Cursor gradient (original layered glow) */
 .cursor-glow { 
-  position: fixed; inset: 0; pointer-events: none; z-index: 10;
-  background: radial-gradient(260px 260px at var(--mx,50%) var(--my,50%), rgba(var(--accent),0.26), transparent 65%),
-              radial-gradient(360px 360px at calc(var(--mx,50%) + 60px) calc(var(--my,50%) + 40px), rgba(var(--accent-2),0.20), transparent 70%),
-              radial-gradient(420px 420px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgba(var(--accent-3),0.16), transparent 70%);
-  mix-blend-mode: hard-light;
+  position: fixed; inset: 0; pointer-events: none; z-index: 40;
+  background: radial-gradient(320px 320px at var(--mx,50%) var(--my,50%), rgb(var(--accent) / 0.35), transparent 65%),
+              radial-gradient(420px 420px at calc(var(--mx,50%) + 60px) calc(var(--my,50%) + 40px), rgb(var(--accent-2) / 0.28), transparent 70%),
+              radial-gradient(520px 520px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgb(var(--accent-3) / 0.22), transparent 70%);
+  mix-blend-mode: overlay;
 }
 /* Calmer in light mode so text remains readable */
-html[data-theme="light"] .cursor-glow { mix-blend-mode: multiply; opacity: 0.75; }
+html[data-theme="light"] .cursor-glow { mix-blend-mode: multiply; opacity: 0.85; }
 
 /* Animated nav links */
 .nav-link { position: relative; padding-bottom: 2px; transition: color .2s ease, transform .2s ease; }
