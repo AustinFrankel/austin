@@ -40,9 +40,9 @@ export default function SeatMakerPage() {
       <div className="mt-10">
         <Gallery
           items={[
-            { src: "/images/seatmaker-laptop.jpg", alt: "Seat Maker site on laptop" },
-            { src: "/images/seatmaker-build-profiles.png", alt: "Build Profiles screenshot" },
-            { src: "/images/seatmaker-export-share.png", alt: "Export and Share screenshot" },
+            { src: "/images/seatmakerappcover.png", alt: "Seat Maker cover" },
+            { src: "/images/seatmakerappcontent1.png", alt: "Build Profiles" },
+            { src: "/images/seatmakercontent6.png", alt: "Layouts" },
           ]}
         />
       </div>

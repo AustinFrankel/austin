@@ -26,7 +26,7 @@ export default function Home() {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur">
-            <img src="/images/austin-headshot.jpeg" alt="Austin headshot" className="w-full h-auto object-cover" />
+            <img src="/images/austin.jpg" alt="Austin headshot" className="w-full h-auto object-cover" />
           </div>
         </section>
       </Reveal>
@@ -85,9 +85,9 @@ export default function Home() {
           <div className="mt-6">
             <Gallery
               items={[
-                { src: "/images/austin-headshot.jpeg", alt: "Austin" },
-                { src: "/images/austin-headshot.jpeg", alt: "Austin" },
-                { src: "/images/austin-headshot.jpeg", alt: "Austin" },
+                { src: "/images/seatmakerappcover.png", alt: "Seat Maker cover" },
+                { src: "/images/codelab.png", alt: "CodeLab session" },
+                { src: "/images/homeworkhelpers.jpg", alt: "Homework Helpers" },
               ]}
             />
           </div>

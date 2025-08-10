@@ -34,6 +34,10 @@ export default function Page() {
         celebrate wins, and build momentum. I teach naming and structure so code explains
         itself without comments.
       </p>
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <img src="/images/codelab.png" alt="CodeLab demo" className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
+        <img src="/images/codelab2.png" alt="CodeLab materials" className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
+      </div>
     </div>
   );
 } 
