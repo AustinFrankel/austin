@@ -88,22 +88,23 @@ html[data-theme="light"] .bg-grid::before {
 .dark .btn-outline:hover { background-color: rgb(255 255 255 / 0.1); }
 
 /* Hover graphics driven by --bx/--by (set by HoverGlowClient) */
-.home-root .btn-primary::after, .home-root .btn-outline::after, .home-root .card::after {
+.btn-primary::after, .btn-outline::after, .card::after {
   content: ""; position: absolute; inset: -1px; pointer-events: none; opacity: 0; transition: opacity .25s ease;
   background:
     radial-gradient(220px 220px at var(--bx, -100px) var(--by, -100px), rgb(var(--accent) / 0.25), transparent 60%),
     radial-gradient(360px 360px at calc(var(--bx, -100px) + 60px) calc(var(--by, -100px) + 40px), rgb(var(--accent-2) / 0.18), transparent 70%);
   mix-blend-mode: overlay;
 }
-.home-root .btn-primary:hover::after, .home-root .btn-outline:hover::after, .home-root .card:hover::after { opacity: 1; }
+/* Only the innermost hovered element should glow. We rely on data-glow-active set by HoverGlowClient */
+.btn-primary[data-glow-active]::after, .btn-outline[data-glow-active]::after, .card[data-glow-active]::after { opacity: 1; }
 
 /* Disable grid-overlay on hover inside boxes (cards/buttons) sitewide */
 .card::before, .btn-primary::before, .btn-outline::before { display: none !important; }
 
 /* Elevation + border accent on hover */
-.home-root .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgb(0 0 0 / .12); }
-.home-root .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgb(59 130 246 / .20); }
-.home-root .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgb(0 0 0 / .08); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgb(0 0 0 / .12); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgb(59 130 246 / .20); }
+.btn-outline:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgb(0 0 0 / .08); }
 .card:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; }
 
 .prose h1, .prose h2, .prose h3 { @apply font-semibold mt-6; }
