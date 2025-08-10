@@ -19,9 +19,9 @@ export function Footer() {
         <nav aria-labelledby="footer-explore">
           <div id="footer-explore" className="font-medium">Explore</div>
           <ul className="mt-3 grid gap-2 text-sm">
-            <li><Link href="/about" className="hover:underline">About</Link></li>
-            <li><Link href="/blog" className="hover:underline">Blog</Link></li>
             <li><Link href="/ventures" className="hover:underline">Ventures</Link></li>
+            <li><Link href="/blog" className="hover:underline">Blog</Link></li>
+            <li><Link href="/timeline" className="hover:underline">Timeline</Link></li>
             <li><Link href="/contact" className="hover:underline">Contact</Link></li>
           </ul>
           <div className="mt-4 text-xs text-neutral-500">Press</div>

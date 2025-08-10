@@ -52,7 +52,7 @@ export default function Home() {
       {/* Ventures preview */}
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-6xl py-10">
-          <h2 className="text-2xl font-semibold">Ventures</h2>
+          <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white">Ventures</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { title: "Seat Maker", href: "/ventures/seat-maker", ext: LINKS.seatMakerSite, desc: "Plan seating with drag-and-drop and instant sharing" },
@@ -71,7 +71,7 @@ export default function Home() {
                     )}
                   </div>
                   <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-300">{c.desc}</p>
-                  <Link href={c.href} className="mt-3 inline-flex text-sm text-blue-600 dark:text-blue-400 hover:underline">View page</Link>
+                  <Link href={c.href} className="mt-3 inline-flex text-sm text-blue-700 dark:text-blue-300 hover:underline">View page</Link>
                 </div>
               </Reveal>
             ))}
@@ -83,7 +83,7 @@ export default function Home() {
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-6xl py-10">
           <h2 className="text-2xl font-semibold">How Seat Maker works</h2>
-          <p className="mt-2 text-neutral-800 dark:text-neutral-300">A few snapshots from the app — build profiles, plan layouts, and share instantly.</p>
+          <p className="mt-2 text-neutral-900 dark:text-neutral-300">A few snapshots from the app — build profiles, plan layouts, and share instantly.</p>
           <div className="mt-6">
             <Gallery
               ratio="3 / 4"
@@ -130,7 +130,7 @@ export default function Home() {
             ].map((t, i) => (
               <Reveal key={t.quote} delay={0.15 + i * 0.04}>
                 <div className="card p-5">
-                  <p className="italic">“{t.quote}”</p>
+                  <p className="italic text-neutral-900 dark:text-neutral-100">“{t.quote}”</p>
                   <div className="mt-2 text-sm text-neutral-700 dark:text-neutral-300">— {t.author}</div>
                 </div>
               </Reveal>

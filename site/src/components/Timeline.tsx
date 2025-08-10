@@ -234,8 +234,8 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
 
         <div className="relative" ref={scrollAreaRef}>
           {/* Stage: sticky container */}
-          <div className="sticky top-16 z-10">
-            <div className="container-px mx-auto max-w-4xl h-[72vh] sm:h-[68vh] flex items-center justify-center">
+          <div className="sticky top-28 z-10">
+            <div className="container-px mx-auto max-w-5xl h-[84vh] sm:h-[80vh] flex items-center justify-center">
               <div className="relative w-full">
                 {/* Background flair */}
                 <motion.div
@@ -267,7 +267,7 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
           {/* Scroll markers: one per item to drive index, each giving scroll length */}
           <div aria-hidden>
             {flatItems.map((it) => (
-              <div key={it.id} className="h-[130vh]" />
+              <div key={it.id} className="h-[95vh]" />
             ))}
           </div>
         </div>
@@ -324,7 +324,7 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
       </div>
 
       {/* Years and items */}
-      <div className="container-px mx-auto max-w-4xl py-16">
+      <div className="container-px mx-auto max-w-6xl py-24">
         <ol className="relative">
           {years.map(([year, list]) => (
             <li
@@ -365,9 +365,9 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
   const isRight = new Date(item.date).getTime() % 2 === 0;
 
   return (
-    <div ref={ref} data-observe="item" data-id={item.id} tabIndex={0} className="group relative pl-6 py-10 outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--accent))] rounded-xl">
+    <div ref={ref} data-observe="item" data-id={item.id} tabIndex={0} className="group relative pl-10 py-16 outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--accent))] rounded-2xl">
       {/* Connector dot */}
-      <span className="absolute left-[-6px] top-8 z-[1] inline-flex h-3 w-3 items-center justify-center">
+      <span className="absolute left-[-7px] top-10 z-[1] inline-flex h-3 w-3 items-center justify-center">
         <span className={`h-3 w-3 rounded-full ${isActive ? "bg-[rgb(var(--accent))]" : "bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/20"}`} />
       </span>
 
@@ -387,13 +387,13 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
 
       {/* Card */}
       <motion.div
-        initial={{ opacity: 0, x: isRight ? 24 : -24, scale: 0.98 }}
+        initial={{ opacity: 0, x: isRight ? 32 : -32, scale: 0.97 }}
         animate={inView && !prefersReducedMotion ? { opacity: 1, x: 0, scale: 1 } : { opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
-        className="card p-5"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="card p-8 md:p-10"
       >
         <div className="flex items-start gap-3">
-          <div className="shrink-0 mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 dark:border-white/20 bg-white dark:bg-neutral-900">
+          <div className="shrink-0 mt-1 inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 dark:border-white/20 bg-white dark:bg-neutral-900">
             <motion.span
               initial={{ scale: 0.9, opacity: 0 }}
               animate={inView && !prefersReducedMotion ? { scale: 1, opacity: 1 } : { scale: 1, opacity: 1 }}
@@ -405,10 +405,10 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
           </div>
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-              <h3 className="font-semibold text-base leading-tight">{item.title}</h3>
+              <h3 className="font-semibold text-2xl leading-tight">{item.title}</h3>
               {item.subtitle && <span className="text-sm text-neutral-600 dark:text-neutral-300">{item.subtitle}</span>}
             </div>
-            <div className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+            <div className="mt-2 text-base text-neutral-600 dark:text-neutral-300">
               <time dateTime={item.date}>{dateLabel}</time>
               {endLabel && <>
                 <span aria-hidden> — </span>
@@ -419,22 +419,22 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
               )}
             </div>
             {item.description && (
-              <p className="mt-2 text-sm leading-6 text-neutral-800 dark:text-neutral-200">{item.description}</p>
+              <p className="mt-3 text-[1.05rem] leading-8 text-neutral-900 dark:text-neutral-200">{item.description}</p>
             )}
             {(item.media && item.media.length > 0) && (
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                {item.media.slice(0, 2).map((m, i) => (
+              <div className="mt-5 grid grid-cols-2 md:grid-cols-3 gap-4">
+                {item.media.slice(0, 3).map((m, i) => (
                   <motion.img
                     key={m.src}
                     src={m.src}
                     alt={m.alt}
                     loading="lazy"
                     decoding="async"
-                    className="h-32 w-full rounded-lg object-cover border border-black/10 dark:border-white/15"
+                    className="h-64 w-full rounded-xl object-cover border border-black/10 dark:border-white/15"
                     initial={{ scale: 0.92, opacity: 0, rotate: i % 2 ? 1.5 : -1.5 }}
                     whileInView={!prefersReducedMotion ? { scale: 1, opacity: 1, rotate: 0 } : undefined}
                     viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                   />
                 ))}
               </div>
@@ -447,7 +447,7 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
               </div>
             )}
             {item.href && (
-              <a href={item.href} target="_blank" rel="noopener" className="mt-3 inline-flex items-center gap-1 text-sm underline underline-offset-2">
+              <a href={item.href} target="_blank" rel="noopener" className="mt-5 inline-flex items-center gap-1 text-base underline underline-offset-2">
                 <LinkIcon className="h-3 w-3" aria-hidden /> Learn more
               </a>
             )}

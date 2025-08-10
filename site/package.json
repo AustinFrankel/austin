@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate:posts": "node ./scripts/generate_posts.mjs"
+    "generate:posts": "node ./scripts/generate_posts.mjs",
+    "generate:posts:openai": "node ./scripts/generate_posts_openai.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

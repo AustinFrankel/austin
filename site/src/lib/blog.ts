@@ -162,10 +162,15 @@ function paragraph(topic: string, seed: number): string {
   const pick = <T,>(arr: T[]) => arr[Math.floor(rand() * arr.length)];
 
   const openings = [
-    `I like small, reliable wins—they stack up faster than big plans.`,
-    `Most problems get easier when the interface is obvious.`,
-    `Momentum matters more than features when you are starting out.`,
-    `Good defaults beat long settings pages every time.`,
+    `Shipping every week taught me that clarity beats scope creep.`,
+    `The best insights came from real users, not whiteboards.`,
+    `A prototype on an iPhone is worth ten sketches in a notebook.`,
+    `If onboarding takes more than a minute, I cut it again.`,
+    `I keep designs reachable with one thumb and obvious errors.`,
+    `Working with families and schools changed how I prioritize.`,
+    `BBYO leadership made me care about follow‑through more than hype.`,
+    `Teaching forced me to name ideas so the UI reads like a sentence.`,
+    `I plan releases around one metric and one story I can retell.`,
   ];
   const actions = [
     `prototype quickly`,
@@ -174,6 +179,8 @@ function paragraph(topic: string, seed: number): string {
     `simplify data models`,
     `tune haptics and thresholds`,
     `trim scope before adding polish`,
+    `write the tour last after the UX is obvious`,
+    `cut features until the empty state makes sense`,
   ];
   const learnings = [
     `write down assumptions first`,
@@ -181,12 +188,16 @@ function paragraph(topic: string, seed: number): string {
     `prefer gestures where reach is short`,
     `treat empty states like the main path`,
     `optimize for one‑handed use on iPhone`,
+    `ask five users before trusting analytics alone`,
+    `ship smaller so mistakes are easy to reverse`,
   ];
   const lenses = [
     `by looking at ${topic.toLowerCase()}`,
     `from a change I shipped in Seat Maker`,
     `with a checklist students can reuse this week`,
     `using a simple before/after story`,
+    `from a week balancing school and shipping`,
+    `anchored to a BBYO or Homework Helpers example`,
   ];
 
   const o = pick(openings);
@@ -309,15 +320,27 @@ const generatedTitles: { title: string; tags: string[] }[] = [
   { title: "My favorite iOS libraries and why I keep the list short", tags: ["ios", "tooling"] },
 ];
 
-const TARGET_POST_COUNT = 50;
+const TARGET_POST_COUNT = 120;
 
 // Create posts to reach a target total; synthesize extras if needed
 const needed = Math.max(0, TARGET_POST_COUNT - basePosts.length);
 const extrasNeeded = Math.max(0, needed - generatedTitles.length);
-const fillerTopics = Array.from({ length: extrasNeeded }, (_, i) => ({
-  title: `Austin’s notes #${i + 1}: building, teaching, and shipping as a student`,
-  tags: ["austin", "notes"],
-}));
+const fillerTopics = Array.from({ length: extrasNeeded }, (_, i) => {
+  const themes = [
+    "week in the life", "release retro", "teaching journal", "design critique",
+    "research notes", "small failure I fixed", "leadership habit", "shipping log",
+  ];
+  const subjects = [
+    "Seat Maker", "CodeLab", "Code Assist", "Homework Helpers", "BrightLineInsights", "BBYO",
+    "SwiftUI", "onboarding", "layouts", "sharing", "constraints",
+  ];
+  const theme = themes[i % themes.length];
+  const subject = subjects[(i * 7) % subjects.length];
+  return {
+    title: `Notes #${i + 1}: ${subject} — ${theme}`,
+    tags: ["journal", subject.toLowerCase().replace(/\s+/g, "-")],
+  };
+});
 
 const topics = [...generatedTitles, ...fillerTopics].slice(0, needed);
 const generatedPosts: BlogPost[] = topics.map((t) => generateLongPost(t.title, t.tags));

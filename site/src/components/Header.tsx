@@ -10,10 +10,9 @@ export function Header() {
       <div className="container-px mx-auto flex h-16 items-center justify-between">
         <Link href="/" className="font-semibold text-lg hover:opacity-80 active:opacity-70">Austin Frankel</Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/about" className="nav-link">About</Link>
-          <Link href="/timeline" className="nav-link">Timeline</Link>
-          <Link href="/ventures/seat-maker" className="nav-link">Ventures</Link>
+          <Link href="/ventures" className="nav-link">Ventures</Link>
           <Link href="/blog" className="nav-link">Blog</Link>
+          <Link href="/timeline" className="nav-link">Timeline</Link>
           <Link href="/contact" className="nav-link">Contact</Link>
         </nav>
         <div className="flex items-center gap-3">

@@ -33,8 +33,8 @@ const faq = [
 export default function Page() {
   return (
     <div className="container-px mx-auto max-w-5xl py-10">
-      <h1 className="text-3xl font-bold">Your Honor Ink</h1>
-      <p className="mt-2 text-neutral-800 dark:text-neutral-300">Custom apparel and printing for clubs, teams, and school events. Quick proofs, clear pricing, and on-time delivery.</p>
+      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">Your Honor Ink</h1>
+      <p className="mt-2 text-neutral-900 dark:text-neutral-300">Custom apparel and printing for clubs, teams, and school events. Quick proofs, clear pricing, and on-time delivery.</p>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <a href={LINKS.yourHonorInkSite} target="_blank" rel="noopener" className="rounded-full border border-black/10 dark:border-white/20 h-11 px-6 inline-flex items-center">Website</a>
@@ -47,6 +47,7 @@ export default function Page() {
 
       <div className="mt-10">
         <Gallery
+          ratio="3 / 4"
           items={[
             { src: "/images/tattoo10.jpg", alt: "Design sample" },
             { src: "/images/tattoo11.jpg", alt: "Print sample" },

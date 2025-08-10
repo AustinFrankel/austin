@@ -16,7 +16,8 @@
     "description": "Posting arrangements and performing locally.",
     "category": "music",
     "date": "2022-10-01",
-    "approximate": true
+    "approximate": true,
+    "href": "https://www.tiktok.com/@bp_piano"
   },
   {
     "id": "helpers-2023",
@@ -25,7 +26,12 @@
     "category": "leadership",
     "location": "Rye Brook, NY",
     "date": "2023-02-01",
-    "approximate": true
+    "approximate": true,
+    "media": [
+      { "src": "/images/homeworkhelpers.jpg", "alt": "Homework Helpers" },
+      { "src": "/images/homeworkhelpers2.jpg", "alt": "Homework Helpers Team" }
+    ],
+    "href": "https://sites.google.com/view/homeworkhelpersprogram/"
   },
   {
     "id": "codelab-2023",
@@ -33,7 +39,16 @@
     "description": "Small‑group teaching and on‑demand 1:1 debugging.",
     "category": "teaching",
     "date": "2023-09-01",
-    "approximate": true
+    "approximate": true,
+    "media": [
+      { "src": "/images/codelab.png", "alt": "CodeLab demo" },
+      { "src": "/images/codelab2.png", "alt": "CodeLab materials" }
+    ],
+    "href": "https://sites.google.com/view/codelabprogram/",
+    "metrics": [
+      { "label": "Students", "value": 32 },
+      { "label": "Hours", "value": 180 }
+    ]
   },
   {
     "id": "yhi-2023",
@@ -41,7 +56,13 @@
     "description": "Custom apparel and printing for clubs and events.",
     "category": "ventures",
     "date": "2023-10-01",
-    "approximate": true
+    "approximate": true,
+    "media": [
+      { "src": "/images/tattoo10.jpg", "alt": "Your Honor Ink sample" },
+      { "src": "/images/tattoo11.jpg", "alt": "Printing sample" },
+      { "src": "/images/tattoo12.jpg", "alt": "Merch sample" }
+    ],
+    "href": "https://www.yourhonorink.com/"
   },
   {
     "id": "bbyo-2024",
@@ -57,7 +78,12 @@
     "description": "Student‑run research and small business experiments.",
     "category": "ventures",
     "date": "2024-05-01",
-    "approximate": true
+    "approximate": true,
+    "media": [
+      { "src": "/images/seatmakerappcontent3.png", "alt": "Project snapshot" },
+      { "src": "/images/seatmakerappcontent4.png", "alt": "Interview notes" }
+    ],
+    "href": "https://www.brightlineinsights.com"
   },
   {
     "id": "athletics-2024",
@@ -91,6 +117,11 @@
     "category": "apps",
     "date": "2025-04-01",
     "approximate": true,
+    "media": [
+      { "src": "/images/seatmakerappcover.png", "alt": "Seat Maker cover" },
+      { "src": "/images/seatmakerappcontent1.png", "alt": "Build Profiles" },
+      { "src": "/images/seatmakercontent6.png", "alt": "Layouts" }
+    ],
     "metrics": [
       { "label": "Downloads", "value": 1200 },
       { "label": "Sessions", "value": 8500 }

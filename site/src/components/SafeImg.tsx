@@ -10,7 +10,13 @@ type SafeImgProps = {
 
 export function SafeImg({ src, alt = "", className }: SafeImgProps) {
   const [hidden, setHidden] = useState(false);
-  if (hidden) return null;
+  if (hidden) return (
+    <img
+      src="/window.svg"
+      alt={alt}
+      className={className}
+    />
+  );
   return (
     <img
       src={src}

@@ -52,6 +52,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <h1>{post.title}</h1>
         <div className="-mt-1 mb-4 overflow-hidden rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5">
           <SafeImg src={`/images/posts/${post.slug}.jpg`} className="w-full h-56 object-cover" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/api/og-post/${post.slug}?title=${encodeURIComponent(post.title)}`} alt="" className="hidden w-full h-56 object-cover" />
         </div>
         <p className="text-neutral-700 dark:text-neutral-300">{post.description}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

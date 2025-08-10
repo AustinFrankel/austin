@@ -159,6 +159,9 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
               <Link href={`/blog/${p.slug}`} className="block">
                 <div className="mb-3 overflow-hidden rounded-lg border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5">
                   <SafeImg src={`/images/posts/${p.slug}.jpg`} className="w-full h-36 object-cover" />
+                  {/* Fallback to dynamic OG if missing */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/api/og-post/${p.slug}?title=${encodeURIComponent(p.title)}`} alt="" className="hidden w-full h-36 object-cover" />
                 </div>
                 <div className="font-medium group-hover:underline">
                   {p.title}
