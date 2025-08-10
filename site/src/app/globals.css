@@ -40,7 +40,7 @@ body { background-color: rgb(var(--bg)); color: rgb(var(--fg)); font-family: Ari
     radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.10), transparent 65%),
     linear-gradient(rgb(100 116 139 / 0.10) 1px, transparent 1px),
     linear-gradient(90deg, rgb(100 116 139 / 0.10) 1px, transparent 1px);
-  background-size: auto, 24px 24px, 24px 24px;
+  background-size: auto, 18px 18px, 18px 18px;
   background-position: center top, center 12px, center;
   background-blend-mode: normal;
   position: relative;
@@ -51,14 +51,14 @@ html[data-theme="light"] .bg-grid {
     radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.16), transparent 65%),
     linear-gradient(rgb(100 116 139 / 0.12) 1px, transparent 1px),
     linear-gradient(90deg, rgb(100 116 139 / 0.12) 1px, transparent 1px);
-  background-position: center top, center 12px, center;
+  background-position: center top, center 9px, center;
 }
 html[data-theme="dark"] .bg-grid {
   background-image:
     radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.22), transparent 65%),
     linear-gradient(rgb(100 116 139 / 0.13) 1px, transparent 1px),
     linear-gradient(90deg, rgb(100 116 139 / 0.13) 1px, transparent 1px);
-  background-position: center top, center 12px, center;
+  background-position: center top, center 9px, center;
 }
 
 /* Extra-assurance: paint grid as a fixed overlay to ensure visibility across all sections */
