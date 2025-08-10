@@ -62,20 +62,9 @@ html[data-theme="dark"] .bg-grid {
 }
 
 /* Extra-assurance: paint grid as a fixed overlay to ensure visibility across all sections */
-.bg-grid::before {
-  content: "";
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    radial-gradient(800px 560px at 50% 0%, rgb(0 0 0 / 0.10), transparent 70%),
-    repeating-linear-gradient(0deg, rgb(120 140 180 / 0.14) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(90deg, rgb(120 140 180 / 0.14) 0 1px, transparent 1px 24px);
-}
-html[data-theme="light"] .bg-grid::before {
-  background-image:
-    radial-gradient(800px 560px at 50% 0%, rgb(120 160 220 / 0.12), transparent 70%),
-    repeating-linear-gradient(0deg, rgb(120 140 180 / 0.16) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(90deg, rgb(120 140 180 / 0.16) 0 1px, transparent 1px 24px);
-}
+/* Disable secondary fixed grid overlay to avoid doubled lines */
+.bg-grid::before { content: none; }
+html[data-theme="light"] .bg-grid::before { content: none; }
 
 .card { @apply rounded-2xl shadow-lg shadow-black/5 dark:shadow-black/20 border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900; position: relative; overflow: hidden; }
 .container-px { @apply px-4 sm:px-6 lg:px-8; }

@@ -38,17 +38,24 @@ export function CursorGlowClient() {
       queueApply();
     };
 
-    // set initial center to avoid top-left fallback
+    // Ensure initial value and on visibility changes
     apply();
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") {
+        apply();
+      }
+    };
 
     window.addEventListener("pointermove", onPointer, { passive: true, capture: true });
     window.addEventListener("mousemove", onMouse, { passive: true, capture: true });
     window.addEventListener("touchmove", onTouch, { passive: true, capture: true });
+    document.addEventListener("visibilitychange", onVisibility, { passive: true });
 
     return () => {
       window.removeEventListener("pointermove", onPointer, true);
       window.removeEventListener("mousemove", onMouse, true);
       window.removeEventListener("touchmove", onTouch, true);
+      document.removeEventListener("visibilitychange", onVisibility, true);
       if (rafId != null) cancelAnimationFrame(rafId);
     };
   }, []);
