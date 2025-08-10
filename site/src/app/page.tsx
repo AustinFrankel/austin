@@ -21,6 +21,8 @@ export default function Home() {
             <p className="mt-4 text-lg text-neutral-800 dark:text-neutral-300">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={LINKS.appStore} target="_blank" rel="noopener" className="btn-primary h-11 px-6 inline-flex items-center">Download Seat Maker</a>
+              <a href="https://www.google.com/maps?q=Rye+Brook,+NY" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center">Rye Brook, NY</a>
+              <a href="https://www.google.com/maps?q=Blind+Brook+High+School" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center">Blind Brook HS</a>
               <Link href="/ventures/codelab" className="btn-outline h-11 px-6 inline-flex items-center">Book Coding Help</Link>
               <Link href="/contact" className="btn-outline h-11 px-6 inline-flex items-center">Contact</Link>
             </div>

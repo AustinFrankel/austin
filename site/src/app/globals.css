@@ -19,12 +19,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root { --bg: 12 14 18; --fg: 232 234 237; --muted: 148 163 184; --card: 22 26 33; --ring: 147 197 253; }
+  :root { --bg: 12 14 18; --fg: 236 239 244; --muted: 160 174 192; --card: 22 26 33; --ring: 147 197 253; }
 }
 
 html { color-scheme: light dark; scroll-behavior: smooth; font-size: calc(16px * var(--text-scale, 1)); transition: font-size .28s ease; }
 
-html[data-theme="light"] { --bg: 255 255 255; --fg: 15 18 25; --muted: 82 92 103; --card: 248 250 252; }
+html[data-theme="light"] { --bg: 255 255 255; --fg: 17 24 39; --muted: 55 65 81; --card: 248 250 252; }
 html[data-theme="dark"] { --bg: 12 14 18; --fg: 232 234 237; --muted: 148 163 184; --card: 22 26 33; }
 
 html[data-textsize="s"] { --text-scale: 0.94; }
@@ -71,10 +71,11 @@ html[data-theme="light"] .bg-grid::before { content: none; }
 
 .btn-primary { background-color: rgb(var(--accent)); color: white; border-radius: 9999px; transition: background-color .15s ease, transform .2s ease, box-shadow .2s ease; position: relative; overflow: hidden; }
 .btn-primary:hover { filter: brightness(0.98); }
-.btn-outline { border: 1px solid rgb(0 0 0 / 0.12); color: inherit; border-radius: 9999px; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+.btn-outline { border: 1px solid rgb(0 0 0 / 0.18); color: inherit; border-radius: 9999px; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; background-color: rgb(255 255 255 / 0.6); }
 .dark .btn-outline { border-color: rgb(255 255 255 / 0.22); }
-.btn-outline:hover { background-color: rgb(0 0 0 / 0.05); }
-.dark .btn-outline:hover { background-color: rgb(255 255 255 / 0.1); }
+.btn-outline:hover { background-color: rgb(0 0 0 / 0.06); }
+.dark .btn-outline { background-color: rgb(17 24 39 / 0.5); }
+.dark .btn-outline:hover { background-color: rgb(255 255 255 / 0.08); }
 
 /* Hover graphics driven by --bx/--by (set by HoverGlowClient) */
 .btn-primary::after, .btn-outline::after, .card::after {
@@ -97,7 +98,7 @@ html[data-theme="light"] .bg-grid::before { content: none; }
 .card:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; }
 
 .prose h1, .prose h2, .prose h3 { @apply font-semibold mt-6; }
-.prose p { @apply mt-4 leading-7; }
+.prose p { @apply mt-4 leading-7; color: rgb(var(--fg)); }
 .prose ul { @apply list-disc pl-6 mt-4; }
 
 /* Cursor gradient that follows the mouse: visible on both themes */
@@ -110,7 +111,7 @@ html[data-theme="light"] .bg-grid::before { content: none; }
   mix-blend-mode: overlay;
 }
 /* Dark mode: keep visibility but subtle */
-html[data-theme="dark"] .cursor-glow { mix-blend-mode: screen; opacity: 0.8; }
+html[data-theme="dark"] .cursor-glow { mix-blend-mode: screen; opacity: 0.82; }
 
 /* Animated nav links */
 .nav-link { position: relative; padding-bottom: 2px; transition: color .2s ease, transform .2s ease; }
