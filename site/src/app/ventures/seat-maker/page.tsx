@@ -39,6 +39,7 @@ export default function SeatMakerPage() {
 
       <div className="mt-10">
         <Gallery
+          ratio="3 / 4"
           items={[
             { src: "/images/seatmakerappcover.png", alt: "Seat Maker cover" },
             { src: "/images/seatmakerappcontent1.png", alt: "Build Profiles" },

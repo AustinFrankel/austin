@@ -84,10 +84,11 @@ export default function Home() {
           <p className="mt-2 text-neutral-800 dark:text-neutral-300">A few snapshots from the app — build profiles, plan layouts, and share instantly.</p>
           <div className="mt-6">
             <Gallery
+              ratio="3 / 4"
               items={[
                 { src: "/images/seatmakerappcover.png", alt: "Seat Maker cover" },
-                { src: "/images/codelab.png", alt: "CodeLab session" },
-                { src: "/images/homeworkhelpers.jpg", alt: "Homework Helpers" },
+                { src: "/images/seatmakerappcontent1.png", alt: "Build Profiles" },
+                { src: "/images/seatmakercontent6.png", alt: "Layouts" },
               ]}
             />
           </div>
