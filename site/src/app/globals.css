@@ -103,7 +103,7 @@ html[data-theme="light"] .bg-grid::before { content: none; }
 /* Cursor gradient that follows the mouse: visible on both themes */
 /* Cursor gradient (original layered glow) */
 .cursor-glow { 
-  position: fixed; inset: 0; pointer-events: none; z-index: 45;
+  position: fixed; inset: 0; pointer-events: none; z-index: 5;
   background: radial-gradient(280px 280px at var(--mx,50%) var(--my,50%), rgb(var(--accent) / 0.18), transparent 65%),
               radial-gradient(380px 380px at calc(var(--mx,50%) + 50px) calc(var(--my,50%) + 30px), rgb(var(--accent-2) / 0.12), transparent 70%),
               radial-gradient(480px 480px at calc(var(--mx,50%) - 70px) calc(var(--my,50%) - 20px), rgb(var(--accent-3) / 0.10), transparent 70%);

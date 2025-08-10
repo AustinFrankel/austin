@@ -8,7 +8,7 @@ export function Gallery({ items }: { items: Item[] }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
       {items.map((it, i) => (
-        <Reveal key={it.src} delay={i * 0.03}>
+        <Reveal key={`${it.src}-${i}`} delay={i * 0.03}>
           <div className="overflow-hidden rounded-xl border border-black/5 dark:border-white/10 group">
             <Image
               src={it.src}
