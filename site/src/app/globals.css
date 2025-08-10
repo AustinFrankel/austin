@@ -101,6 +101,11 @@ html[data-theme="light"] .bg-grid::before { content: none; }
 .prose p { @apply mt-4 leading-7; color: rgb(var(--fg)); }
 .prose ul { @apply list-disc pl-6 mt-4; }
 
+/* Light-mode readability chips for text over the grid */
+.text-bg { padding: .15rem .35rem; border-radius: .5rem; }
+html[data-theme="light"] .text-bg { background-color: rgb(255 255 255 / 0.75); box-shadow: 0 0 0 1px rgb(0 0 0 / 0.06) inset; }
+html[data-theme="dark"] .text-bg { background-color: transparent; }
+
 /* Cursor gradient that follows the mouse: visible on both themes */
 /* Cursor gradient (original layered glow) */
 .cursor-glow { 

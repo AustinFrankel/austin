@@ -17,8 +17,8 @@ export default function Home() {
       <Reveal mode="mount">
         <section className="container-px mx-auto max-w-6xl pt-16 pb-8 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
           <div>
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">Austin Frankel · Student Entrepreneur & iOS Developer</h1>
-            <p className="mt-4 text-lg text-neutral-800 dark:text-neutral-300">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</p>
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight"><span className="text-bg">Austin Frankel · Student Entrepreneur & iOS Developer</span></h1>
+            <p className="mt-4 text-lg text-neutral-800 dark:text-neutral-300"><span className="text-bg">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</span></p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={LINKS.appStore} target="_blank" rel="noopener" className="btn-primary h-11 px-6 inline-flex items-center">Download Seat Maker</a>
               <a href="https://www.google.com/maps?q=Rye+Brook,+NY" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center">Rye Brook, NY</a>
