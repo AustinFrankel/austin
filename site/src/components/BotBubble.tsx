@@ -66,7 +66,7 @@ export function BotBubble() {
           )}
         </button>
       ) : (
-        <div className="w-[340px] h-[480px] rounded-2xl border border-black/10 dark:border-white/20 bg-white dark:bg-neutral-900 shadow-xl flex flex-col">
+          <div className="w-[340px] h-[480px] rounded-2xl border border-black/10 dark:border-white/20 bg-white dark:bg-neutral-900 shadow-xl flex flex-col">
           <div className="p-3 border-b border-black/5 dark:border-white/10 flex items-center justify-between">
             <div className="font-medium">Austin Assistant</div>
             <div className="flex items-center gap-2">
@@ -77,7 +77,7 @@ export function BotBubble() {
           <div ref={listRef} className="flex-1 overflow-auto p-3 space-y-3">
             {messages.map((m, i) => (
               <div key={i} className={m.role === "assistant" ? "" : "text-right"}>
-                <div className={`inline-block max-w-[85%] px-3 py-2 rounded-xl ${m.role === "assistant" ? "bg-black/5 dark:bg-white/10" : "bg-[rgba(var(--accent),0.12)] dark:bg-[rgba(var(--accent),0.25)]"}`}>
+                <div className={`inline-block max-w-[85%] px-3 py-2 rounded-xl ${m.role === "assistant" ? "bg-white text-black dark:bg-white/10 dark:text-white" : "bg-[rgba(var(--accent),0.12)] dark:bg-[rgba(var(--accent),0.25)]"}`}>
                   {m.text.split("\n").map((ln, j) => (
                     <p key={j} className="text-sm leading-6 whitespace-pre-wrap">{ln}</p>
                   ))}

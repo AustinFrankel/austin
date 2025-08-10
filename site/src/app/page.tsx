@@ -17,7 +17,7 @@ export default function Home() {
       <Reveal mode="mount">
         <section className="container-px mx-auto max-w-6xl pt-16 pb-8 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
           <div>
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">Austin Frankel — Student Entrepreneur & iOS Developer</h1>
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">Austin Frankel · Student Entrepreneur & iOS Developer</h1>
             <p className="mt-4 text-lg text-neutral-800 dark:text-neutral-300">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={LINKS.appStore} target="_blank" rel="noopener" className="btn-primary h-11 px-6 inline-flex items-center">Download Seat Maker</a>
