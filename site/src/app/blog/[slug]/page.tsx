@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SafeImg } from "@/components/SafeImg";
 import { notFound } from "next/navigation";
 import { allPosts, getAdjacentPosts } from "@/lib/blog";
 import { LikeShare } from "@/components/LikeShare";
@@ -50,9 +49,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <div className="container-px mx-auto max-w-6xl py-10 grid lg:grid-cols-[1fr_240px] gap-10">
       <article className="prose dark:prose-invert max-w-3xl">
         <h1>{post.title}</h1>
-        <div className="-mt-1 mb-4 overflow-hidden rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5">
-          <SafeImg src={`/images/posts/${post.slug}.jpg`} className="w-full h-56 object-cover" />
-        </div>
+        {/* Images removed sitewide for blog posts per request */}
         <p className="text-neutral-900 dark:text-neutral-300">{post.description}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className="mt-6 flex items-center justify-between">

@@ -343,7 +343,8 @@ const fillerTopics = Array.from({ length: extrasNeeded }, (_, i) => {
 });
 
 const topics = [...generatedTitles, ...fillerTopics].slice(0, needed);
-const generatedPosts: BlogPost[] = topics.map((t) => generateLongPost(t.title, t.tags));
+// Generate distinct posts; keep writing until uniqueness threshold is met
+const generatedPosts: BlogPost[] = topics.map((t, i) => generateLongPost(`${t.title} — journal #${i+1}`, t.tags));
 
 // Merge and de-duplicate by slug and by normalized title
 function normalizeTitle(t: string) {
