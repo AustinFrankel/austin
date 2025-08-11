@@ -218,40 +218,24 @@ function generateLongPost(title: string, tagHints: string[]): BlogPost {
   const slug = toSlug(title);
   const seed = Math.abs(Array.from(title).reduce((a, c) => a * 31 + c.charCodeAt(0), 7));
   const intro = paragraph(title, seed + 1);
-  // Build truly varied sections using seeded prompts; each section uses a different
+  // Build varied sections using seeded prompts; each section uses a different
   // seed so the wording is unique per post and per section.
   const sections = [
+    `Story`,
     `Context`,
     `Decisions`,
     `What failed`,
     `What worked`,
+    `Tactics you can reuse`,
     `Next steps`,
   ];
   const blocks = sections.map(
     (s, i) => `<h3 id="s${i}">${s}</h3><p>${paragraph(`${title} - ${s}`, seed + 97 * (i + 2))}</p>`
   );
-  const imageOptions = [
-    `<p><img src="/images/seatmaker-laptop.jpg" alt="Seat Maker on laptop" /></p>`,
-    `<p><img src="/images/seatmaker-build-profiles.png" alt="Build Profiles" /></p>`,
-    `<p><img src="/images/seatmaker-export-share.png" alt="Export & Share" /></p>`,
-  ];
-  const rand = seededRng(seed + 13);
-  const images = [
-    imageOptions[Math.floor(rand() * imageOptions.length)],
-    imageOptions[Math.floor(rand() * imageOptions.length)],
-    imageOptions[Math.floor(rand() * imageOptions.length)],
-  ];
   const html = sanitize(`
     <h2 id="intro">Why this topic matters</h2>
     <p>${intro}</p>
-    ${blocks.slice(0, 2).join("\n")}
-    ${images[0]}
-    <h2 id="story">What I did and learned</h2>
-    ${blocks.slice(2, 4).join("\n")}
-    ${images[1]}
-    <h2 id="takeaways">Tactics you can reuse</h2>
-    ${blocks.slice(4, 5).join("\n")}
-    ${images[2]}
+    ${blocks.join("\n")}
   `);
   const headings = [
     { id: "intro", text: "Why this topic matters" },
