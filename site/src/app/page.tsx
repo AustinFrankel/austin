@@ -67,7 +67,7 @@ export default function Home() {
                   <div className="flex items-center justify-between">
                     <h3 className="font-semibold">{c.title}</h3>
                     {c.ext && (
-                      <a className="text-xs text-neutral-700 dark:text-neutral-300 hover:underline" href={c.ext} target="_blank" rel="noopener">Visit</a>
+                      <a className="text-xs text-neutral-900 dark:text-neutral-300 hover:underline" href={c.ext} target="_blank" rel="noopener">Visit</a>
                     )}
                   </div>
                   <p className="mt-2 text-sm text-neutral-900 dark:text-neutral-300">{c.desc}</p>
@@ -107,7 +107,7 @@ export default function Home() {
                 <article className="card p-5">
                   <Link href={`/blog/${p.slug}`} className="font-medium hover:underline">{p.title}</Link>
                   <div className="text-sm text-neutral-900 dark:text-neutral-300">{p.description}</div>
-                  <div className="mt-2 text-xs text-neutral-700 dark:text-neutral-400">{p.tags.map((t) => `#${t}`).join(" ")}</div>
+                  <div className="mt-2 text-xs text-neutral-900 dark:text-neutral-400">{p.tags.map((t) => `#${t}`).join(" ")}</div>
                 </article>
               </Reveal>
             ))}

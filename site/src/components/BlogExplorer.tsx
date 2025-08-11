@@ -166,7 +166,7 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
                 <div className="text-sm text-neutral-900 dark:text-neutral-300">
                   {p.description}
                 </div>
-                <div className="mt-2 text-xs text-neutral-700 dark:text-neutral-400">
+                <div className="mt-2 text-xs text-neutral-900 dark:text-neutral-400">
                   {p.tags.slice(0, 3).map((t) => `#${t}`).join(" ")}
                   {p.tags.length > 3 ? " …" : ""}
                 </div>
@@ -189,7 +189,7 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
         </div>
       )}
 
-      <div className="mt-3 text-sm text-neutral-500">
+      <div className="mt-3 text-sm text-neutral-900 dark:text-neutral-400">
         Showing {Math.min(visible, results.length)} of {results.length} posts
       </div>
     </div>

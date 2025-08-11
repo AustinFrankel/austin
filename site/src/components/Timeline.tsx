@@ -415,7 +415,7 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
                 <time dateTime={item.endDate}>{endLabel}</time>
               </>}
               {item.location && (
-                <span className="ml-2 inline-flex items-center gap-1 text-neutral-700 dark:text-neutral-400"><MapPin className="h-3 w-3" aria-hidden />{item.location}</span>
+                <span className="ml-2 inline-flex items-center gap-1 text-neutral-900 dark:text-neutral-400"><MapPin className="h-3 w-3" aria-hidden />{item.location}</span>
               )}
             </div>
             {item.description && (
@@ -474,7 +474,7 @@ function Counter({ value, label, animate }: { value: number; label: string; anim
   return (
     <div className="rounded-md border border-black/10 dark:border-white/20 px-2.5 py-1.5">
       <div className="text-sm font-semibold tabular-nums">{display.toLocaleString()}</div>
-        <div className="text-xs text-neutral-700 dark:text-neutral-400">{label}</div>
+    <div className="text-xs text-neutral-900 dark:text-neutral-400">{label}</div>
     </div>
   );
 }
