@@ -226,9 +226,9 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
         {/* Sticky year/header */}
         <div className="sticky top-0 z-20 backdrop-blur-sm bg-white/60 dark:bg-neutral-900/60 border-b border-black/5 dark:border-white/10">
           <div className="container-px mx-auto max-w-4xl py-2 flex items-center gap-3">
-            <div className="text-xs uppercase tracking-wide text-neutral-700 dark:text-neutral-400">Year</div>
+            <div className="text-xs uppercase tracking-wide text-neutral-900 dark:text-neutral-400">Year</div>
             <div className="text-xl font-semibold" aria-live="polite" aria-atomic>{currentYear}</div>
-            <div className="ml-auto text-sm text-neutral-700 dark:text-neutral-400">{activeIndex + 1}/{flatItems.length}</div>
+            <div className="ml-auto text-sm text-neutral-900 dark:text-neutral-400">{activeIndex + 1}/{flatItems.length}</div>
           </div>
         </div>
 
@@ -290,7 +290,7 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
       {/* Sticky year header */}
       <div className="sticky top-0 z-10 backdrop-blur-sm bg-white/60 dark:bg-neutral-900/60 border-b border-black/5 dark:border-white/10">
         <div className="container-px mx-auto max-w-3xl py-2 flex items-center gap-3">
-          <div className="text-xs uppercase tracking-wide text-neutral-700 dark:text-neutral-400">Year</div>
+          <div className="text-xs uppercase tracking-wide text-neutral-900 dark:text-neutral-400">Year</div>
           <div className="text-xl font-semibold" aria-live="polite" aria-atomic>
             {years[activeYearIndex]?.[0] ?? new Date(sorted[0]?.date ?? Date.now()).getFullYear()}
           </div>

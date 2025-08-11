@@ -28,6 +28,6 @@ export function ViewCounter({ slug }: { slug: string }) {
   }, [slug, key]);
 
   return (
-    <div className="text-xs text-neutral-500">{views.toLocaleString()} views</div>
+    <div className="text-xs text-neutral-900 dark:text-neutral-400">{views.toLocaleString()} views</div>
   );
 }

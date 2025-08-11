@@ -54,19 +54,19 @@ export function GlobalSearch() {
             className="w-full bg-transparent outline-none px-2 py-2"
             aria-label="Site search"
           />
-          <button className="text-sm text-neutral-500" onClick={() => setOpen(false)} aria-label="Close">Esc</button>
+          <button className="text-sm text-neutral-900 dark:text-neutral-400" onClick={() => setOpen(false)} aria-label="Close">Esc</button>
         </div>
         <ul className="max-h-[60vh] overflow-auto divide-y divide-black/5 dark:divide-white/10">
           {results.length === 0 && (
-            <li className="p-4 text-sm text-neutral-600 dark:text-neutral-300">Type to search…</li>
+            <li className="p-4 text-sm text-neutral-900 dark:text-neutral-300">Type to search…</li>
           )}
           {results.map((r) => (
             <li key={r.href} className="hover:bg-black/5 dark:hover:bg-white/5">
               <Link href={r.href} className="block p-4">
-                <div className="text-sm text-neutral-500">{r.category}</div>
+                <div className="text-sm text-neutral-900 dark:text-neutral-400">{r.category}</div>
                 <div className="font-medium">{r.title}</div>
                 {r.description && (
-                  <div className="text-sm text-neutral-600 dark:text-neutral-300 line-clamp-2">{r.description}</div>
+                  <div className="text-sm text-neutral-900 dark:text-neutral-300 line-clamp-2">{r.description}</div>
                 )}
               </Link>
             </li>

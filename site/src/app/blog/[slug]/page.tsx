@@ -29,7 +29,7 @@ function TableOfContents({ headings }: { headings: { id: string; text: string }[
       <ul className="mt-3 grid gap-1 text-sm">
         {headings.map((h) => (
           <li key={h.id}>
-            <a href={`#${h.id}`} className="text-neutral-600 dark:text-neutral-300 hover:underline">
+            <a href={`#${h.id}`} className="text-neutral-900 dark:text-neutral-300 hover:underline">
               {h.text}
             </a>
           </li>
@@ -53,7 +53,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <div className="-mt-1 mb-4 overflow-hidden rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5">
           <SafeImg src={`/images/posts/${post.slug}.jpg`} className="w-full h-56 object-cover" />
         </div>
-        <p className="text-neutral-700 dark:text-neutral-300">{post.description}</p>
+        <p className="text-neutral-900 dark:text-neutral-300">{post.description}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className="mt-6 flex items-center justify-between">
           <LikeShare id={post.slug} title={post.title} />

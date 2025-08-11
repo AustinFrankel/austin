@@ -22,7 +22,7 @@ export function FAQAccordion({ items }: FAQProps) {
               aria-controls={`faq-${idx}`}
             >
               <span className="font-medium">{it.q}</span>
-              <span className={`ml-3 text-neutral-500 transition-transform ${open ? "rotate-180" : "rotate-0"}`}>⌄</span>
+              <span className={`ml-3 text-neutral-900 dark:text-neutral-400 transition-transform ${open ? "rotate-180" : "rotate-0"}`}>⌄</span>
             </button>
             <AnimatePresence initial={false}>
               {open && (
@@ -33,7 +33,7 @@ export function FAQAccordion({ items }: FAQProps) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
                 >
-                  <div className="px-4 pb-4 text-neutral-700 dark:text-neutral-300">
+                  <div className="px-4 pb-4 text-neutral-900 dark:text-neutral-300">
                     {it.a}
                   </div>
                 </motion.div>

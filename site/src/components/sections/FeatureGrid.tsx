@@ -9,7 +9,7 @@ export function FeatureGrid({ items }: { items: Feature[] }) {
         <Reveal key={f.title} delay={i * 0.03}>
           <div className="card p-5 transition-transform hover:-translate-y-1">
             <div className="font-semibold">{f.title}</div>
-            <div className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">{f.description}</div>
+            <div className="mt-1 text-sm text-neutral-900 dark:text-neutral-300">{f.description}</div>
           </div>
         </Reveal>
       ))}
