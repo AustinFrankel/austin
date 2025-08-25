@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "CodeLab — small‑group and 1:1 coding sessions",
@@ -35,8 +36,8 @@ export default function Page() {
         itself without comments.
       </p>
       <div className="mt-8 grid gap-3 sm:grid-cols-2">
-        <img src="/images/codelab.png" alt="CodeLab demo" className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
-        <img src="/images/codelab2.png" alt="CodeLab materials" className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
+        <Image src="/images/codelab.png" alt="CodeLab demo" width={1200} height={800} className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
+        <Image src="/images/codelab2.png" alt="CodeLab materials" width={1200} height={800} className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
       </div>
     </div>
   );

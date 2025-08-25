@@ -38,11 +38,11 @@ export function LikeShare({ id, title }: { id: string; title: string }) {
     <div className="mt-6 flex items-center gap-3">
       <button onClick={toggleLike} className={`btn-outline h-9 px-3 inline-flex items-center gap-2 ${liked ? "bg-black text-white dark:bg-white dark:text-black" : ""}`} aria-pressed={liked} aria-label="Like this post">
         <span>{liked ? "♥" : "♡"}</span>
-        <span className="text-sm">{count}</span>
+        <span className="text-sm text-fg">{count}</span>
       </button>
       <button onClick={share} className="btn-outline h-9 px-3 inline-flex items-center gap-2" aria-label="Share this post">
         <span>↗</span>
-        <span className="text-sm">Share</span>
+        <span className="text-sm text-fg">Share</span>
       </button>
     </div>
   );

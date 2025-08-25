@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
+import { Header, MobileTabBar } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CANONICAL_URL } from "@/lib/site.config";
 import { PersonJsonLd } from "@/app/(schema)/person-jsonld";
@@ -50,17 +50,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-grid`}>
+        <a href="#content" className="skip-link">Skip to content</a>
         <div className="cursor-glow" aria-hidden="true" />
         <ThemeProvider>
           <Header />
           <PageTransition>
-            <main>{children}</main>
+            <main id="content">{children}</main>
           </PageTransition>
           <Footer />
           <PersonJsonLd />
           <BotBubble />
           <GlobalSearch />
         </ThemeProvider>
+        <MobileTabBar />
         <div id="feedback-root"></div>
         <ClientProviders />
         <CursorGlowClient />

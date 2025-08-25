@@ -86,7 +86,7 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
           aria-label="Search posts"
         />
         <div className="flex items-center gap-2 justify-end">
-          <label className="text-sm text-neutral-900 dark:text-neutral-300">Tags:</label>
+          <label className="text-sm text-muted"><span className="text-bg">Tags:</span></label>
           <select
             value={tagMode}
             onChange={(e) => setTagMode(e.target.value as TagMode)}
@@ -98,7 +98,7 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
           </select>
         </div>
         <div className="flex items-center gap-2 justify-end">
-          <label className="text-sm text-neutral-900 dark:text-neutral-300">Sort:</label>
+          <label className="text-sm text-muted"><span className="text-bg">Sort:</span></label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortBy)}
@@ -158,13 +158,13 @@ export function BlogExplorer({ posts }: BlogExplorerProps) {
             <article className={`card ${compact ? "p-3" : "p-5"} transition-transform group-hover:-translate-y-1`}>
               <Link href={`/blog/${p.slug}`} className="block">
                 {/* Images removed from cards per request */}
-                <div className="font-medium group-hover:underline text-neutral-900 dark:text-white">
+                <div className="font-medium group-hover:underline text-fg">
                   {p.title}
                 </div>
-                <div className="text-sm text-neutral-900 dark:text-neutral-300">
+                <div className="text-sm text-muted">
                   {p.description}
                 </div>
-                <div className="mt-2 text-xs text-neutral-900 dark:text-neutral-400">
+                <div className="mt-2 text-xs text-muted">
                   {p.tags.slice(0, 3).map((t) => `#${t}`).join(" ")}
                   {p.tags.length > 3 ? " …" : ""}
                 </div>

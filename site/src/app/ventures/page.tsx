@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Ventures() {
   const items = [
@@ -11,17 +12,17 @@ export default function Ventures() {
   ];
   return (
     <div className="container-px mx-auto max-w-4xl py-10">
-      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">Ventures</h1>
+      <h1 className="text-3xl font-bold text-fg"><span className="text-bg">Ventures</span></h1>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((v) => (
           <Link key={v.href} href={v.href} className="card overflow-hidden hover:-translate-y-1 transition-transform">
             <div className="aspect-[4/3] overflow-hidden bg-black/5 dark:bg-white/5">
-              <img src={v.img} alt="" className="w-full h-full object-cover" />
+              <Image src={v.img} alt="" width={800} height={600} className="w-full h-full object-cover" />
             </div>
               <div className="p-4">
-                <div className="font-semibold text-neutral-900 dark:text-white">{v.name}</div>
-                <div className="text-sm text-neutral-900 dark:text-neutral-300">{v.desc}</div>
-                <div className="mt-2 text-blue-700 dark:text-blue-300">View page</div>
+                <div className="font-semibold text-fg">{v.name}</div>
+                <div className="text-sm text-muted">{v.desc}</div>
+                <div className="mt-2" style={{ color: "rgb(var(--accent))" }}>View page</div>
             </div>
           </Link>
         ))}

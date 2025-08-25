@@ -7,9 +7,9 @@ export default function Contact() {
       {/* Intro text and direct contact details removed per request */}
 
       <form className="mt-6 grid gap-4">
-        <input aria-label="Name" placeholder="Name" className="h-11 px-4 rounded-xl border border-black/10 dark:border-white/20 bg-transparent" />
-        <input aria-label="Email" placeholder="Email" type="email" className="h-11 px-4 rounded-xl border border-black/10 dark:border-white/20 bg-transparent" />
-        <textarea aria-label="Message" placeholder="Message" className="min-h-[120px] p-4 rounded-xl border border-black/10 dark:border-white/20 bg-transparent" />
+        <input aria-label="Name" placeholder="Name" className="h-11 px-4 rounded-xl border border-black/10 dark:border-white/20 bg-white/80 dark:bg-neutral-900/70" />
+        <input aria-label="Email" placeholder="Email" type="email" className="h-11 px-4 rounded-xl border border-black/10 dark:border-white/20 bg-white/80 dark:bg-neutral-900/70" />
+        <textarea aria-label="Message" placeholder="Message" className="min-h-[120px] p-4 rounded-xl border border-black/10 dark:border-white/20 bg-white/80 dark:bg-neutral-900/70" />
         <button type="submit" className="h-11 px-6 rounded-full bg-black text-white dark:bg-white dark:text-black">Send</button>
       </form>
 

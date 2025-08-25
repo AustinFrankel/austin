@@ -1,14 +1,23 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --bg: 255 255 255;
-  --fg: 15 18 25;
-  --muted: 102 112 133;
-  --card: 248 250 252;
-  --ring: 59 130 246;
-  --accent: 59 130 246; /* primary accent; updated by ThemeProvider */
-  --accent-2: 139 92 246; /* secondary for gradients */
-  --accent-3: 16 185 129; /* tertiary for gradients */
+  /* Theme tokens */
+  --bg: #ffffff;
+  --fg: #0b1220;
+  --muted: #6b7280;
+  --surface: #f8fafc;
+  --brand: #0ea5e9;
+  --brand-contrast: #0b1220;
+
+  /* Backwards-compat with existing styles */
+  --card: var(--surface);
+  --ring: #3b82f6;
+
+  /* Accent hues used for decorative glows; controlled by ThemeProvider */
+  --accent: 59 130 246; /* rgb tuple string */
+  --accent-2: 139 92 246;
+  --accent-3: 16 185 129;
 }
 
 @theme inline {
@@ -19,24 +28,54 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root { --bg: 12 14 18; --fg: 236 239 244; --muted: 160 174 192; --card: 22 26 33; --ring: 147 197 253; }
+  :root {
+    --bg: #0b1220;
+    --fg: #f8fafc;
+    --muted: #9aa4b2;
+    --surface: #111827;
+    --brand: #38bdf8;
+    --brand-contrast: #0b1220;
+    --ring: #93c5fd;
+  }
 }
 
 html { color-scheme: light dark; scroll-behavior: smooth; font-size: calc(16px * var(--text-scale, 1)); transition: font-size .28s ease; }
 
-html[data-theme="light"] { --bg: 255 255 255; --fg: 17 24 39; --muted: 31 41 55; --card: 248 250 252; }
-html[data-theme="dark"] { --bg: 12 14 18; --fg: 232 234 237; --muted: 148 163 184; --card: 22 26 33; }
+html[data-theme="light"] {
+  --bg: #ffffff;
+  --fg: #0b1220;
+  --muted: #6b7280;
+  --surface: #f8fafc;
+  --brand: #0ea5e9;
+  --brand-contrast: #0b1220;
+}
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --fg: #f8fafc;
+  --muted: #9aa4b2;
+  --surface: #111827;
+  --brand: #38bdf8;
+  --brand-contrast: #0b1220;
+}
 
 html[data-textsize="s"] { --text-scale: 0.94; }
 html[data-textsize="m"] { --text-scale: 1; }
 html[data-textsize="l"] { --text-scale: 1.12; }
 
-body { background-color: rgb(var(--bg)); color: rgb(var(--fg)); font-family: Arial, Helvetica, sans-serif; }
+body { background-color: var(--bg); color: var(--fg); font-family: Arial, Helvetica, sans-serif; }
+
+/* Token utility helpers (for convenience alongside Tailwind arbitrary values) */
+.text-fg { color: var(--fg); }
+.text-muted { color: var(--muted); }
+.bg-surface { background-color: var(--surface); }
+.bg-brand { background-color: var(--brand); }
+.text-brand-contrast { color: var(--brand-contrast); }
 
 /* Advanced background: soft grid + vignette + diagonal noise (original style) */
 .bg-grid {
   /* Symmetrical grid centered on viewport with subtle vignette; hue ties to accent */
   background-image:
+    linear-gradient(120deg, rgb(var(--accent) / 0.03), transparent 35%),
     radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.10), transparent 65%),
     linear-gradient(rgb(100 116 139 / 0.10) 1px, transparent 1px),
     linear-gradient(90deg, rgb(100 116 139 / 0.10) 1px, transparent 1px);
@@ -48,9 +87,10 @@ body { background-color: rgb(var(--bg)); color: rgb(var(--fg)); font-family: Ari
 /* Tune grid strength per theme for better readability */
 html[data-theme="light"] .bg-grid {
   background-image:
-    radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.16), transparent 65%),
-    linear-gradient(rgb(100 116 139 / 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(100 116 139 / 0.12) 1px, transparent 1px);
+    linear-gradient(120deg, rgb(var(--accent) / 0.025), transparent 35%),
+    radial-gradient(1000px 700px at 50% 0%, rgb(var(--accent) / 0.055), transparent 65%),
+    linear-gradient(rgb(100 116 139 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(100 116 139 / 0.045) 1px, transparent 1px);
   background-position: center top, center 9px, center;
 }
 html[data-theme="dark"] .bg-grid {
@@ -66,16 +106,19 @@ html[data-theme="dark"] .bg-grid {
 .bg-grid::before { content: none; }
 html[data-theme="light"] .bg-grid::before { content: none; }
 
-.card { @apply rounded-2xl shadow-lg shadow-black/5 dark:shadow-black/20 border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900; position: relative; overflow: hidden; }
+.card { @apply rounded-2xl shadow-lg shadow-black/5 dark:shadow-black/20 border border-black/15 dark:border-white/10; background-color: var(--surface); position: relative; overflow: hidden; }
 .container-px { @apply px-4 sm:px-6 lg:px-8; }
 
-.btn-primary { background-color: rgb(var(--accent)); color: white; border-radius: 9999px; transition: background-color .15s ease, transform .2s ease, box-shadow .2s ease; position: relative; overflow: hidden; }
+.btn-primary { background-color: var(--brand); color: var(--brand-contrast); border-radius: 9999px; transition: background-color .15s ease, transform .2s ease, box-shadow .2s ease; position: relative; overflow: hidden; }
 .btn-primary:hover { filter: brightness(0.98); }
-.btn-outline { border: 1px solid rgb(0 0 0 / 0.16); color: inherit; border-radius: 9999px; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; background-color: transparent; backdrop-filter: saturate(140%) blur(6px); }
-.dark .btn-outline { border-color: rgb(255 255 255 / 0.22); }
+.btn-outline { border: 1px solid rgb(0 0 0 / 0.2); color: var(--fg); border-radius: 9999px; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; background-color: color-mix(in oklab, var(--surface), transparent 35%); backdrop-filter: saturate(140%) blur(6px); }
 .btn-outline:hover { background-color: rgb(0 0 0 / 0.05); }
-.dark .btn-outline { background-color: rgb(17 24 39 / 0.5); }
+.dark .btn-outline { border-color: rgb(255 255 255 / 0.22); }
 .dark .btn-outline:hover { background-color: rgb(255 255 255 / 0.08); }
+/* Light theme: slightly filled outline buttons for contrast on white cards */
+html[data-theme="light"] .btn-outline { background-color: color-mix(in oklab, var(--surface), white 20%); }
+.dark .btn-outline { border-color: rgb(255 255 255 / 0.22); }
+.dark .btn-outline { background-color: color-mix(in oklab, var(--surface), black 20%); }
 
 /* Hover graphics driven by --bx/--by (set by HoverGlowClient) */
 .btn-primary::after, .btn-outline::after, .card::after {
@@ -92,31 +135,47 @@ html[data-theme="light"] .bg-grid::before { content: none; }
 .card::before, .btn-primary::before, .btn-outline::before { display: none !important; }
 
 /* Elevation + border accent on hover */
-.card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgb(0 0 0 / .12); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgb(0 0 0 / .14); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgb(59 130 246 / .20); }
 .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgb(0 0 0 / .08); }
 .card:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; }
 
 .prose h1, .prose h2, .prose h3 { @apply font-semibold mt-6; }
-.prose p { @apply mt-4 leading-7; color: rgb(var(--fg)); }
+.prose p { @apply mt-4 leading-7; color: var(--fg); }
 .prose ul { @apply list-disc pl-6 mt-4; }
 
-/* Light-mode readability chips for text over the grid */
+/* Prose token theming */
+.prose { color: var(--fg); }
+.prose :where(h1,h2,h3,h4) { color: var(--fg); }
+.prose :where(p,li,blockquote,figcaption) { color: var(--muted); }
+.dark .prose { color: var(--fg); }
+.dark .prose :where(p,li,blockquote,figcaption) { color: var(--muted); }
+
+/* Readability chip utility — disabled in light mode per request */
 .text-bg { padding: .15rem .35rem; border-radius: .5rem; }
-html[data-theme="light"] .text-bg { background-color: rgb(255 255 255 / 0.75); box-shadow: 0 0 0 1px rgb(0 0 0 / 0.06) inset; }
-html[data-theme="dark"] .text-bg { background-color: transparent; }
+html[data-theme="light"] .text-bg { background-color: transparent; color: inherit; box-shadow: none; padding: 0; border-radius: 0; }
+html[data-theme="dark"] .text-bg { background-color: transparent; color: var(--fg); }
 
 /* Cursor gradient that follows the mouse: visible on both themes */
-/* Cursor gradient (original layered glow) */
+/* Cursor gradient (beefed up for light theme contrast) */
 .cursor-glow { 
   position: fixed; inset: 0; pointer-events: none; z-index: 40;
-  background: radial-gradient(260px 260px at var(--mx,50%) var(--my,50%), rgb(var(--accent) / 0.15), transparent 65%),
-              radial-gradient(340px 340px at calc(var(--mx,50%) + 60px) calc(var(--my,50%) + 40px), rgb(var(--accent-2) / 0.10), transparent 70%),
-              radial-gradient(420px 420px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgb(var(--accent-3) / 0.06), transparent 70%);
+  background: radial-gradient(260px 260px at var(--mx,50%) var(--my,50%), rgb(var(--accent) / 0.18), transparent 65%),
+              radial-gradient(340px 340px at calc(var(--mx,50%) + 60px) calc(var(--my,50%) + 40px), rgb(var(--accent-2) / 0.12), transparent 70%),
+              radial-gradient(420px 420px at calc(var(--mx,50%) - 80px) calc(var(--my,50%) - 20px), rgb(var(--accent-3) / 0.08), transparent 70%),
+              radial-gradient(360px 360px at var(--mx,50%) var(--my,50%), rgb(0 0 0 / 0.06), transparent 70%);
   mix-blend-mode: overlay;
+  opacity: 0.55;
 }
-/* Dark mode: keep visibility but subtle */
-html[data-theme="dark"] .cursor-glow { mix-blend-mode: screen; opacity: 0.82; }
+/* Theme-specific blending */
+html[data-theme="dark"] .cursor-glow { mix-blend-mode: screen; opacity: 0.7; }
+html[data-theme="light"] .cursor-glow { mix-blend-mode: multiply; opacity: 0.6; }
+
+/* Light theme: give cards a subtle inner gradient for prominence */
+html[data-theme="light"] .card { 
+  background-image: linear-gradient(180deg, rgb(0 0 0 / 0.05), transparent 28%);
+  background-blend-mode: normal;
+}
 
 /* Animated nav links */
 .nav-link { position: relative; padding-bottom: 2px; transition: color .2s ease, transform .2s ease; }
@@ -135,3 +194,7 @@ html[data-theme="dark"] .cursor-glow { mix-blend-mode: screen; opacity: 0.82; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* Skip to content link */
+.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; padding: .5rem .75rem; border-radius: .5rem; background: var(--brand); color: var(--brand-contrast); z-index: 100; box-shadow: 0 4px 14px rgb(0 0 0 / .2); }

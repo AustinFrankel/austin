@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <div className="container-px mx-auto max-w-5xl py-10">
       <h1 className="text-3xl font-bold">Timeline</h1>
-      <p className="mt-2 text-neutral-900 dark:text-neutral-300">Milestones across apps, ventures, leadership, athletics, and music.</p>
+      <p className="mt-2 text-neutral-900 dark:text-neutral-300"><span className="text-bg">Milestones across apps, ventures, leadership, athletics, and music.</span></p>
       <div className="mt-5">
         <StatStrip
           items={[

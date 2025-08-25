@@ -224,11 +224,11 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
     return (
       <section ref={containerRef} aria-label="Timeline" className={className}>
         {/* Sticky year/header */}
-        <div className="sticky top-0 z-20 backdrop-blur-sm bg-white/60 dark:bg-neutral-900/60 border-b border-black/5 dark:border-white/10">
+        <div className="sticky top-0 z-20 backdrop-blur-sm bg-white/80 dark:bg-neutral-900/70 border-b border-black/10 dark:border-white/15">
           <div className="container-px mx-auto max-w-4xl py-2 flex items-center gap-3">
-            <div className="text-xs uppercase tracking-wide text-neutral-900 dark:text-neutral-400">Year</div>
-            <div className="text-xl font-semibold" aria-live="polite" aria-atomic>{currentYear}</div>
-            <div className="ml-auto text-sm text-neutral-900 dark:text-neutral-400">{activeIndex + 1}/{flatItems.length}</div>
+            <div className="text-xs uppercase tracking-wide text-neutral-900 dark:text-neutral-400"><span className="text-bg">Year</span></div>
+          <div className="text-xl font-semibold"><span className="text-bg" aria-live="polite" aria-atomic>{currentYear}</span></div>
+            <div className="ml-auto text-sm text-neutral-900 dark:text-neutral-400"><span className="text-bg">{activeIndex + 1}/{flatItems.length}</span></div>
           </div>
         </div>
 
@@ -288,11 +288,11 @@ export function Timeline({ items, className, singleVisible = false }: Props) {
   return (
     <section ref={containerRef} aria-label="Timeline" className={className} onKeyDown={onKeyDown}>
       {/* Sticky year header */}
-      <div className="sticky top-0 z-10 backdrop-blur-sm bg-white/60 dark:bg-neutral-900/60 border-b border-black/5 dark:border-white/10">
+      <div className="sticky top-0 z-10 backdrop-blur-sm bg-white/80 dark:bg-neutral-900/70 border-b border-black/10 dark:border-white/15">
         <div className="container-px mx-auto max-w-3xl py-2 flex items-center gap-3">
-          <div className="text-xs uppercase tracking-wide text-neutral-900 dark:text-neutral-400">Year</div>
+          <div className="text-xs uppercase tracking-wide text-neutral-900 dark:text-neutral-400"><span className="text-bg">Year</span></div>
           <div className="text-xl font-semibold" aria-live="polite" aria-atomic>
-            {years[activeYearIndex]?.[0] ?? new Date(sorted[0]?.date ?? Date.now()).getFullYear()}
+            <span className="text-bg">{years[activeYearIndex]?.[0] ?? new Date(sorted[0]?.date ?? Date.now()).getFullYear()}</span>
           </div>
         </div>
       </div>
@@ -406,16 +406,16 @@ function TimelineRow({ item, isLast, isActive }: { item: TimelineItem; isLast: b
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
               <h3 className="font-semibold text-2xl leading-tight">{item.title}</h3>
-              {item.subtitle && <span className="text-sm text-neutral-900 dark:text-neutral-300">{item.subtitle}</span>}
+              {item.subtitle && <span className="text-sm text-neutral-900 dark:text-neutral-300"><span className="text-bg">{item.subtitle}</span></span>}
             </div>
             <div className="mt-2 text-base text-neutral-900 dark:text-neutral-300">
-              <time dateTime={item.date}>{dateLabel}</time>
+              <time dateTime={item.date}><span className="text-bg">{dateLabel}</span></time>
               {endLabel && <>
                 <span aria-hidden> — </span>
-                <time dateTime={item.endDate}>{endLabel}</time>
+                <time dateTime={item.endDate}><span className="text-bg">{endLabel}</span></time>
               </>}
               {item.location && (
-                <span className="ml-2 inline-flex items-center gap-1 text-neutral-900 dark:text-neutral-400"><MapPin className="h-3 w-3" aria-hidden />{item.location}</span>
+                <span className="ml-2 inline-flex items-center gap-1 text-neutral-900 dark:text-neutral-400"><MapPin className="h-3 w-3" aria-hidden /><span className="text-bg">{item.location}</span></span>
               )}
             </div>
             {item.description && (

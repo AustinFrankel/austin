@@ -22,8 +22,8 @@ const faq = [
 export default function SeatMakerPage() {
   return (
     <div className="container-px mx-auto max-w-5xl py-10">
-      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">Seat Maker</h1>
-      <p className="mt-2 text-neutral-900 dark:text-neutral-300">Seat Maker is a touch‑first seating‑chart app built for families, schools, and small events. Plan layouts quickly with drag‑and‑drop, keep context with guest profiles and notes, and share instantly with a link or QR.</p>
+      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white"><span className="text-bg">Seat Maker</span></h1>
+      <p className="mt-2 text-neutral-900 dark:text-neutral-300"><span className="text-bg">Seat Maker is a touch‑first seating‑chart app built for families, schools, and small events. Plan layouts quickly with drag‑and‑drop, keep context with guest profiles and notes, and share instantly with a link or QR.</span></p>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <a href={LINKS.appStore} target="_blank" rel="noopener" className="rounded-full bg-black text-white dark:bg-white dark:text-black h-11 px-6 inline-flex items-center">Download on the App Store</a>

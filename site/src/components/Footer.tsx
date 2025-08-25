@@ -3,13 +3,11 @@ import { LINKS, AUTHOR, VENTURES } from "@/lib/site.config";
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-black/5 dark:border-white/10 bg-white/60 dark:bg-black/20 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/30">
+    <footer className="mt-24 border-t border-black/10 dark:border-white/15 bg-white/80 dark:bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/50">
       <div className="container-px mx-auto py-14 grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
           <div className="font-semibold text-xl">Austin Frankel</div>
-          <p className="text-sm text-neutral-900 dark:text-neutral-300 mt-2 max-w-sm">
-            Student entrepreneur & iOS developer from Rye Brook, NY. Creator of Seat Maker; BBYO leader; coding educator (CodeLab, Code Assist).
-          </p>
+          <p className="text-sm text-neutral-900 dark:text-neutral-300 mt-2 max-w-sm"><span className="text-bg">Student entrepreneur & iOS developer from Rye Brook, NY. Creator of Seat Maker; BBYO leader; coding educator (CodeLab, Code Assist).</span></p>
           <div className="mt-4 flex flex-wrap gap-2">
             <a href={LINKS.appStore} target="_blank" rel="noopener" className="btn-primary h-9 px-4 inline-flex items-center">Download Seat Maker</a>
             <a href={LINKS.seatMakerInstagram} target="_blank" rel="noopener" className="btn-outline h-9 px-4 inline-flex items-center">@seatmakerapp</a>
@@ -60,7 +58,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-black/5 dark:border-white/10">
+      <div className="border-t border-black/10 dark:border-white/15">
         <div className="container-px mx-auto py-6 text-xs text-neutral-900 dark:text-neutral-400 flex flex-wrap items-center justify-between gap-2">
           <div>© {new Date().getFullYear()} Austin Frankel • Built with Next.js & Tailwind</div>
           <div className="flex gap-3">

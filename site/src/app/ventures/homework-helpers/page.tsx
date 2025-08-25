@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { LINKS } from "@/lib/site.config";
 import { FeatureGrid } from "@/components/sections/FeatureGrid";
 import { Gallery } from "@/components/sections/Gallery";
@@ -33,12 +34,8 @@ const faq = [
 export default function Page() {
   return (
     <div className="container-px mx-auto max-w-3xl py-10">
-      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">Homework Helpers</h1>
-      <p className="mt-3 text-neutral-900 dark:text-neutral-300">
-        Homework Helpers organizes student volunteers to support younger learners with
-        homework, planning, and confidence. We focus on routines that make school feel
-        manageable—checklists, time boxing, and celebrating progress.
-      </p>
+      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white"><span className="text-bg">Homework Helpers</span></h1>
+      <p className="mt-3 text-neutral-900 dark:text-neutral-300"><span className="text-bg">Homework Helpers organizes student volunteers to support younger learners with homework, planning, and confidence. We focus on routines that make school feel manageable—checklists, time boxing, and celebrating progress.</span></p>
       <div className="mt-6 flex flex-wrap gap-3">
         <a href={LINKS.homeworkHelpersSite} target="_blank" rel="noopener" className="rounded-full border border-black/10 dark:border-white/20 h-11 px-6 inline-flex items-center">Website</a>
       </div>
@@ -46,14 +43,9 @@ export default function Page() {
       <div className="mt-8">
         <FeatureGrid items={features} />
       </div>
-      <div className="mt-8">
-        <Gallery
-          ratio="3 / 4"
-          items={[
-            { src: "/images/homeworkhelpers.jpg", alt: "Homework Helpers" },
-            { src: "/images/homeworkhelpers2.jpg", alt: "Homework Helpers team" },
-          ]}
-        />
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <Image src="/images/homeworkhelpers.jpg" alt="Homework Helpers" width={1200} height={800} className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
+        <Image src="/images/homeworkhelpers2.jpg" alt="Homework Helpers team" width={1200} height={800} className="w-full h-auto rounded-xl border border-black/10 dark:border-white/20" />
       </div>
       <div className="mt-10 grid gap-4">
         <h2 className="text-2xl font-semibold">FAQ</h2>

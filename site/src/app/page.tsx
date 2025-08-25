@@ -17,18 +17,18 @@ export default function Home() {
       <Reveal mode="mount">
         <section className="container-px mx-auto max-w-6xl pt-16 pb-8 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
           <div>
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight"><span className="text-bg">Austin Frankel · Student Entrepreneur & iOS Developer</span></h1>
-            <p className="mt-4 text-lg text-neutral-900 dark:text-neutral-300"><span className="text-bg">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</span></p>
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight text-fg"><span className="text-bg">Austin Frankel · Student Entrepreneur & iOS Developer</span></h1>
+            <p className="mt-4 text-lg text-muted"><span className="text-bg">Creator of Seat Maker; BBYO leader; coding educator in Rye Brook, NY.</span></p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href={LINKS.appStore} target="_blank" rel="noopener" className="btn-primary h-11 px-6 inline-flex items-center">Download Seat Maker</a>
-              <a href="https://www.google.com/maps?q=Rye+Brook,+NY" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center">Rye Brook, NY</a>
-              <a href="https://www.google.com/maps?q=Blind+Brook+High+School" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center">Blind Brook HS</a>
-              <Link href="/ventures/codelab" className="btn-outline h-11 px-6 inline-flex items-center">Book Coding Help</Link>
-              <Link href="/contact" className="btn-outline h-11 px-6 inline-flex items-center">Contact</Link>
+              <a href={LINKS.appStore} target="_blank" rel="noopener noreferrer" className="btn-primary h-11 px-6 inline-flex items-center">Download Seat Maker</a>
+              <a href="https://www.google.com/maps?q=Rye+Brook,+NY" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center"><span className="text-bg">Rye Brook, NY</span></a>
+              <a href="https://www.google.com/maps?q=Blind+Brook+High+School" target="_blank" rel="noopener" className="btn-outline h-11 px-6 inline-flex items-center"><span className="text-bg">Blind Brook HS</span></a>
+              <Link href="/ventures/codelab" className="btn-outline h-11 px-6 inline-flex items-center"><span className="text-bg">Book Coding Help</span></Link>
+              <Link href="/contact" className="btn-outline h-11 px-6 inline-flex items-center"><span className="text-bg">Contact</span></Link>
             </div>
           </div>
           <div className="relative">
-            <img src="/images/austin-headshot.png" alt="Austin headshot" className="w-full h-auto object-contain drop-shadow-2xl" />
+            <Image src="/images/austin-headshot.png" alt="Austin headshot" width={800} height={800} priority className="w-full h-auto object-contain drop-shadow-2xl" />
           </div>
         </section>
       </Reveal>
@@ -52,7 +52,7 @@ export default function Home() {
       {/* Ventures preview */}
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-6xl py-10">
-          <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white">Ventures</h2>
+          <h2 className="text-2xl font-semibold text-fg"><span className="text-bg">Ventures</span></h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { title: "Seat Maker", href: "/ventures/seat-maker", ext: LINKS.seatMakerSite, desc: "Plan seating with drag-and-drop and instant sharing" },
@@ -65,13 +65,13 @@ export default function Home() {
               <Reveal key={c.title} delay={0.15 + i * 0.03}>
                 <div className="card p-6 transition-transform hover:-translate-y-1">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-semibold">{c.title}</h3>
+                    <h3 className="font-semibold text-fg">{c.title}</h3>
                     {c.ext && (
-                      <a className="text-xs text-neutral-900 dark:text-neutral-300 hover:underline" href={c.ext} target="_blank" rel="noopener">Visit</a>
+                      <a className="text-xs text-muted hover:underline" href={c.ext} target="_blank" rel="noopener noreferrer">Visit</a>
                     )}
                   </div>
-                  <p className="mt-2 text-sm text-neutral-900 dark:text-neutral-300">{c.desc}</p>
-                  <Link href={c.href} className="mt-3 inline-flex text-sm text-blue-700 dark:text-blue-300 hover:underline">View page</Link>
+                  <p className="mt-2 text-sm text-muted">{c.desc}</p>
+                  <Link href={c.href} className="mt-3 inline-flex text-sm" style={{ color: "rgb(var(--accent))" }}>View page</Link>
                 </div>
               </Reveal>
             ))}
@@ -82,8 +82,8 @@ export default function Home() {
       {/* How Seat Maker works (gallery) */}
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-6xl py-10">
-          <h2 className="text-2xl font-semibold">How Seat Maker works</h2>
-          <p className="mt-2 text-neutral-900 dark:text-neutral-300">A few snapshots from the app — build profiles, plan layouts, and share instantly.</p>
+          <h2 className="text-2xl font-semibold text-fg"><span className="text-bg">How Seat Maker works</span></h2>
+          <p className="mt-2 text-muted"><span className="text-bg">A few snapshots from the app — build profiles, plan layouts, and share instantly.</span></p>
           <div className="mt-6">
             <Gallery
               ratio="3 / 4"
@@ -100,14 +100,14 @@ export default function Home() {
       {/* Recent posts */}
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-6xl py-10">
-          <h2 className="text-2xl font-semibold">Latest posts</h2>
+          <h2 className="text-2xl font-semibold text-fg"><span className="text-bg">Latest posts</span></h2>
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
             {recent.map((p, i) => (
               <Reveal key={p.slug} delay={0.15 + i * 0.05}>
                 <article className="card p-5">
                   <Link href={`/blog/${p.slug}`} className="font-medium hover:underline">{p.title}</Link>
-                  <div className="text-sm text-neutral-900 dark:text-neutral-300">{p.description}</div>
-                  <div className="mt-2 text-xs text-neutral-900 dark:text-neutral-400">{p.tags.map((t) => `#${t}`).join(" ")}</div>
+                  <div className="text-sm text-muted">{p.description}</div>
+                  <div className="mt-2 text-xs text-muted">{p.tags.map((t) => `#${t}`).join(" ")}</div>
                 </article>
               </Reveal>
             ))}
@@ -121,7 +121,7 @@ export default function Home() {
       {/* Testimonials */}
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-6xl py-10">
-          <h2 className="text-2xl font-semibold">What people say</h2>
+          <h2 className="text-2xl font-semibold text-fg"><span className="text-bg">What people say</span></h2>
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
             {[
               { quote: "Seat Maker saved me hours planning my banquet.", author: "Parent Organizer" },
@@ -130,8 +130,8 @@ export default function Home() {
             ].map((t, i) => (
               <Reveal key={t.quote} delay={0.15 + i * 0.04}>
                 <div className="card p-5">
-                  <p className="italic text-neutral-900 dark:text-neutral-100">“{t.quote}”</p>
-                  <div className="mt-2 text-sm text-neutral-900 dark:text-neutral-300">— {t.author}</div>
+                  <p className="italic text-fg">“{t.quote}”</p>
+                  <div className="mt-2 text-sm text-muted">— {t.author}</div>
                 </div>
               </Reveal>
             ))}
@@ -142,10 +142,8 @@ export default function Home() {
       {/* About preview + FAQ */}
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-3xl py-10">
-          <h2 className="text-2xl font-semibold">About</h2>
-          <p className="mt-3 text-neutral-900 dark:text-neutral-300">
-            Austin Frankel is a 17-year-old student entrepreneur from Rye Brook, NY. Creator of Seat Maker, BBYO regional leader, coding educator (CodeLab, Code Assist), Homework Helpers VP, swim instructor, and pianist (BP_Piano). Blind Brook High School ’26.
-          </p>
+          <h2 className="text-2xl font-semibold text-fg"><span className="text-bg">About</span></h2>
+          <p className="mt-3 text-muted"><span className="text-bg">Austin Frankel is a 17-year-old student entrepreneur from Rye Brook, NY. Creator of Seat Maker, BBYO regional leader, coding educator (CodeLab, Code Assist), Homework Helpers VP, swim instructor, and pianist (BP_Piano). Blind Brook High School ’26.</span></p>
           <div className="mt-4">
             <Link href="/blog" className="text-sm underline">Read the latest posts</Link>
           </div>
@@ -155,19 +153,19 @@ export default function Home() {
       {/* Follow along */}
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-6xl py-10">
-          <h2 className="text-2xl font-semibold">Follow along</h2>
+          <h2 className="text-2xl font-semibold text-fg"><span className="text-bg">Follow along</span></h2>
           <div className="mt-4 grid sm:grid-cols-2 gap-4">
             <a href={LINKS.seatMakerInstagram} target="_blank" rel="noopener" className="card p-6 flex items-center justify-between">
               <div>
                 <div className="font-semibold">@seatmakerapp</div>
-                <div className="text-sm text-neutral-900 dark:text-neutral-300">App updates, tips, and behind-the-scenes.</div>
+                <div className="text-sm text-muted">App updates, tips, and behind-the-scenes.</div>
               </div>
               <span>📷</span>
             </a>
             <a href={LINKS.personalInstagram} target="_blank" rel="noopener" className="card p-6 flex items-center justify-between">
               <div>
                 <div className="font-semibold">@austinfrankel1</div>
-                <div className="text-sm text-neutral-900 dark:text-neutral-300">Personal projects and life updates.</div>
+                <div className="text-sm text-muted">Personal projects and life updates.</div>
               </div>
               <span>📷</span>
             </a>
@@ -177,7 +175,7 @@ export default function Home() {
 
       <Reveal delay={0.1}>
         <section className="container-px mx-auto max-w-3xl py-10">
-          <h2 className="text-2xl font-semibold">FAQ</h2>
+          <h2 className="text-2xl font-semibold text-fg"><span className="text-bg">FAQ</span></h2>
           <div className="mt-4">
             <FAQAccordion items={homeFaq} />
           </div>

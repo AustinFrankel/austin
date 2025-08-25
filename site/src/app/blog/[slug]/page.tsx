@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { allPosts, getAdjacentPosts } from "@/lib/blog";
 import { LikeShare } from "@/components/LikeShare";
 import { ViewCounter } from "@/components/ViewCounter";
+import { JsonLd } from "@/components/JsonLd";
+import { CANONICAL_URL } from "@/lib/site.config";
 
 export function generateStaticParams() {
   return allPosts.map((p) => ({ slug: p.slug }));
@@ -50,7 +52,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <article className="prose dark:prose-invert max-w-3xl">
         <h1>{post.title}</h1>
         {/* Images removed sitewide for blog posts per request */}
-        <p className="text-neutral-900 dark:text-neutral-300">{post.description}</p>
+        <p className="text-neutral-900 dark:text-neutral-300"><span className="text-bg">{post.description}</span></p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className="mt-6 flex items-center justify-between">
           <LikeShare id={post.slug} title={post.title} />
@@ -65,7 +67,33 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           )}
         </div>
       </article>
-      <TableOfContents headings={headings} />
+      <JsonLd
+        json={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.description,
+          url: `${CANONICAL_URL}/blog/${post.slug}`,
+          mainEntityOfPage: `${CANONICAL_URL}/blog/${post.slug}`,
+          author: { "@type": "Person", name: "Austin Frankel" },
+        }}
+      />
+      <JsonLd
+        json={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Blog", item: "/blog" },
+            { "@type": "ListItem", position: 3, name: post.title, item: `/blog/${post.slug}` },
+          ],
+        }}
+      />
+      <div className="sticky top-28 hidden lg:block">
+        <div className="rounded-xl border border-black/10 dark:border-white/20 bg-white/80 dark:bg-neutral-900/70 p-4">
+          <TableOfContents headings={headings} />
+        </div>
+      </div>
     </div>
   );
 } 

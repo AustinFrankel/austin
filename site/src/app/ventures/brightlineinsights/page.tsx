@@ -33,11 +33,8 @@ const faq = [
 export default function Page() {
   return (
     <div className="container-px mx-auto max-w-5xl py-10">
-      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">BrightLineInsights</h1>
-      <p className="mt-3 text-neutral-900 dark:text-neutral-300">
-        Student‑run research that helps small orgs learn fast with short surveys, friendly interviews,
-        and one‑page summaries.
-      </p>
+      <h1 className="text-3xl font-bold text-neutral-900 dark:text-white"><span className="text-bg">BrightLineInsights</span></h1>
+      <p className="mt-3 text-neutral-900 dark:text-neutral-300"><span className="text-bg">Student‑run research that helps small orgs learn fast with short surveys, friendly interviews, and one‑page summaries.</span></p>
       <div className="mt-6 flex flex-wrap gap-3">
         <a href={LINKS.brightlineInsightsSite} target="_blank" rel="noopener" className="rounded-full border border-black/10 dark:border-white/20 h-11 px-6 inline-flex items-center">Website</a>
         <a href={LINKS.brightlineInsightsAlt} target="_blank" rel="noopener" className="rounded-full border border-black/10 dark:border-white/20 h-11 px-6 inline-flex items-center">Alt site</a>
