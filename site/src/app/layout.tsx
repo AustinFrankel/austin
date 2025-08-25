@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header, MobileTabBar } from "@/components/Header";
+import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CANONICAL_URL } from "@/lib/site.config";
 import { PersonJsonLd } from "@/app/(schema)/person-jsonld";
@@ -62,7 +62,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <BotBubble />
           <GlobalSearch />
         </ThemeProvider>
-        <MobileTabBar />
         <div id="feedback-root"></div>
         <ClientProviders />
         <CursorGlowClient />

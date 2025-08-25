@@ -25,7 +25,7 @@ export function DisplayControls() {
           />
         ))}
       </div>
-      <div className="flex items-center rounded-full border border-black/10 dark:border-white/20 overflow-visible shrink-0" role="group" aria-label="Text size">
+      <div className="hidden sm:flex items-center rounded-full border border-black/10 dark:border-white/20 overflow-visible shrink-0" role="group" aria-label="Text size">
         {(["s", "m", "l"] as const).map((s) => (
           <button
             key={s}

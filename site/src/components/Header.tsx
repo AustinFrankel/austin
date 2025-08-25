@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 export function Header() {
   const pathname = usePathname();
   return (
-    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-black/50 border-b border-black/10 dark:border-white/15">
-      <div className="container-px mx-auto flex h-14 items-center justify-between">
+    <header className="sticky top-0 z-50 bg-black text-white md:bg-transparent md:text-inherit md:backdrop-blur md:supports-[backdrop-filter]:bg-white/80 md:dark:supports-[backdrop-filter]:bg-black/50 border-b border-black/10 dark:border-white/15 pt-[env(safe-area-inset-top)]">
+      <div className="container-px mx-auto flex h-16 items-center justify-between">
         <Link href="/" className="font-semibold text-lg hover:opacity-80 active:opacity-70">Austin Frankel</Link>
         <nav className="hidden md:flex items-center gap-6" aria-label="Primary">
           {[
@@ -34,6 +34,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <DisplayControls />
           <a href={LINKS.appStore} target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex btn-primary h-9 px-4 items-center">Download</a>
+          <Link href="/browse" className="md:hidden h-9 px-4 rounded-full border border-white/30 text-white">Browse</Link>
         </div>
       </div>
     </header>
